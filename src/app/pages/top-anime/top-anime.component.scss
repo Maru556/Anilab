@@ -1,0 +1,75 @@
+@import "../../variables.scss";
+
+.container {
+  height: 35vh;
+  width: 100%;
+  display: flex;
+  z-index: -1;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  h1 {
+    z-index: 1;
+    margin-bottom: 0;
+  }
+}
+
+.overlay {
+  height: 35vh;
+  width: 100%;
+  position: absolute;
+  background-color: rgb(0, 0, 0);
+  opacity: 0.2;
+  background: url("../../../assets/images/fma.jpg") no-repeat center;
+  background-size: cover;
+  z-index: 0;
+}
+
+.list-nav {
+  padding: 5vh;
+  display: flex;
+  justify-content: center;
+  button {
+    background-color: $pri-color;
+    display: flex;
+    width: auto;
+    margin: 2vw;
+  }
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  margin: 2vh;
+}
+mat-card {
+  cursor: pointer;
+  height: 20vh;
+  width: 80vw;
+  display: flex;
+  background-color: $bg-color;
+  justify-content: space-around;
+  align-items: center;
+  .info {
+    flex-basis: 40%;
+  }
+  h1 {
+    margin-bottom: 0;
+    mat-icon {
+      margin-left: 0.5em;
+    }
+  }
+  img {
+    height: 80%;
+    width: auto;
+  }
+  button {
+    font-size: $font-l;
+    border-style: none;
+    background: none;
+    cursor: pointer;
+    &:hover {
+      color: $pri-color;
+    }
+  }
+}

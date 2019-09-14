@@ -1,0 +1,16 @@
+$bg-color: #1a1a1a;
+$deco-color: #4e4e50;
+$pri-color: #c3073f;
+$sec-color: #950740;
+$txt-color: #ffff;
+
+$font: "BebasNeueRegular", sans-serif;
+$font-s: 0.8em;
+$font-m: 1.4em;
+$font-l: 2em;
+
+* {
+  font-family: $font;
+  letter-spacing: 0.05em;
+  color: $txt-color;
+}

@@ -1,0 +1,52 @@
+@import "../../variables.scss";
+
+.container {
+  height: 35vh;
+  width: 100%;
+  display: flex;
+  z-index: -1;
+}
+
+.overlay {
+  height: 35vh;
+  width: 100%;
+  position: absolute;
+  background-color: rgb(0, 0, 0);
+  opacity: 0.2;
+  background: no-repeat center;
+  background-size: cover;
+}
+
+.row1 {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 2em;
+  padding-bottom: 1em;
+  height: 100%;
+  width: 50%;
+  align-items: flex-end;
+  z-index: 1;
+}
+.row2 {
+  display: flex;
+  justify-content: space-evenly;
+  padding-left: 2em;
+  padding-bottom: 1em;
+  height: 100%;
+  width: 50%;
+  align-items: flex-end;
+  z-index: 1;
+}
+
+button {
+  font-size: $font-l;
+  border-style: none;
+  background: none;
+  cursor: pointer;
+  &:hover {
+    color: $pri-color;
+  }
+}
+#tab {
+  padding-top: 1em;
+}

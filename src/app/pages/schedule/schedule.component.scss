@@ -1,0 +1,20 @@
+@import "../../variables.scss";
+h1 {
+  margin: 1em;
+}
+.container {
+  padding-left: 2em;
+  padding-right: 2em;
+}
+.tile-container {
+  justify-content: center;
+  width: 100%;
+  margin-top: 2em;
+  display: grid;
+  grid-template-columns: repeat(5, 15%);
+  grid-template-rows: auto;
+  grid-gap: 2em;
+  h1 {
+    text-align: center;
+  }
+}

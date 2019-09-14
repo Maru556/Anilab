@@ -1,0 +1,72 @@
+<div class="container">
+  <mat-tab-group mat-align-tabs="center" class="mat-elevation-z6">
+    <!-- Login -->
+    <mat-tab label="Login">
+      <div class="login">
+        <h1 class="mat-h1">Welcome Back!</h1>
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="Enter your email"
+            [formControl]="email"
+            required
+          />
+          <mat-error *ngIf="email.invalid">{{ getErrorMessage() }}</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="Enter your password"
+            [formControl]=""
+            required
+          />
+          <mat-error></mat-error>
+        </mat-form-field>
+        <button mat-flat-button>Log In</button>
+      </div>
+    </mat-tab>
+
+    <!-- Register -->
+    <mat-tab label="Register">
+      <div class="register">
+        <h1 class="mat-h1">Welcome to Anilab!</h1>
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="Enter your username"
+            [formControl]=""
+            required
+          />
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="Enter your email"
+            [formControl]="email"
+            required
+          />
+          <mat-error *ngIf="email.invalid">{{ getErrorMessage() }}</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="Enter your password"
+            [formControl]=""
+            required
+          />
+          <mat-error></mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="Re-Enter your password"
+            [formControl]=""
+            required
+          />
+          <mat-error></mat-error>
+        </mat-form-field>
+        <button mat-flat-button>Register</button>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>

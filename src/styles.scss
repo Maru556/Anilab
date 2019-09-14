@@ -1,0 +1,101 @@
+//imports
+@import "~@angular/material/prebuilt-themes/pink-bluegrey.css";
+@import "~@angular/material/theming";
+@import "~material-icons/iconfont/material-icons.css";
+
+//reset
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #1a1a1a;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent; /* make scrollbar transparent */
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+//global material design customization
+//mat-tab
+.mat-tab-label {
+  font-family: "BebasNeueRegular", sans-serif;
+}
+
+.mat-tab-header {
+  border-bottom: none !important;
+}
+.mat-tab-group.mat-primary .mat-ink-bar,
+.mat-tab-nav-bar.mat-primary .mat-ink-bar {
+  background: #c3073f;
+  height: 2px;
+}
+//mat-icon
+mat-icon {
+  font-family: "Material Icons" !important;
+}
+//mat-form
+.mat-form-field.mat-focused.mat-primary .mat-select-arrow {
+  color: #c3073f;
+}
+
+.mat-form-field.mat-focused .mat-form-field-ripple {
+  background-color: #c3073f;
+}
+
+input.mat-input-element {
+  color: white;
+}
+.mat-form-field.mat-focused .mat-form-field-label {
+  color: #c3073f;
+}
+//mat-chip
+.mat-chip.mat-standard-chip {
+  background-color: #4e4e50;
+  font-size: 0.7em;
+  &:after {
+    background-color: #4e4e50;
+  }
+}
+//mat-divider
+.mat-divider {
+  border-top-color: #c3073f;
+}
+
+//button
+.mat-flat-button {
+  background: #c3073f;
+}
