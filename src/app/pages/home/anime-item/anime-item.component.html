@@ -1,4 +1,8 @@
-<div class="mat-elevation-z7">
-  <img src="{{ anime.picture }}" alt="" />
-  <h1 class="mat-h3">{{ anime.name }}</h1>
+<div *ngIf="data" class="tile-row">
+  <div *ngFor="let anime of data.anime" class="mat-elevation-z7" (click)="toDetailPage(anime)">
+    <img src="{{ anime.image_url }}" alt="" />
+    <div class="text">
+      <h1 class="mat-h5">{{ anime.title}}</h1>
+    </div>
+  </div>
 </div>

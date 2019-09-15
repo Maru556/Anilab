@@ -1,13 +1,14 @@
-<div class="main" style="padding-top: 64px">
+<div *ngIf="data" class="main" style="padding-top: 64px">
   <!--Anime Detail Background-->
-  <div class="container" alt="">
+  <div *ngIf="img" class="container" alt="">
+    <img src="{{ img.large}}" alt="">
     <div class="overlay"></div>
     <div class="row1">
-      <h1 class="anime-name">Anime Name</h1>
+      <h1 class="anime-name">{{data.title}}</h1>
     </div>
     <div class="row2">
-      <h1 class="anime-rank">Ranked</h1>
-      <h1 class="anime-rating">Rating</h1>
+      <h1 class="anime-rank">Rank: {{data.rank}}</h1>
+      <h1 class="anime-rating">{{data.score}}</h1>
       <button>+ Add</button>
     </div>
   </div>
@@ -17,15 +18,21 @@
     <mat-tab-group dynamicHeight mat-align-tabs="center">
       <mat-tab label="Info">
         <!-- Info  -->
-        <div class="example-small-box mat-elevation-z4"></div>
+        <div class="example-small-box mat-elevation-z4">
+          <h1>Broadcast: {{data.broadcast}}</h1>
+          <h1>Episodes: {{data.episodes}}</h1>
+          <h1></h1>
+        </div>
       </mat-tab>
       <mat-tab label="Synopsis">
         <!-- Synopsis -->
-        <div class="example-large-box mat-elevation-z4"></div>
+        <div class="example-large-box mat-elevation-z4">{{data.synopsis}}</div>
       </mat-tab>
       <mat-tab label="Trailer">
         <!-- Trailer -->
-        <div class="example-large-box mat-elevation-z4"></div>
+        <div class="example-large-box mat-elevation-z4">
+          <iframe src="{{ data.trailer_url }}" frameborder="0" height="300px" width="auto"></iframe>
+        </div>
       </mat-tab>
       <mat-tab label="Reviews">
         <!-- Reviews -->

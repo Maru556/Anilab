@@ -1,17 +1,17 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
+import { Observable } from "rxjs";
+
+import { SeasonalAnime } from "./api.model";
 
 @Injectable()
 export class ApiService {
-  baseUrl: string = "https://api.jikan.moe/v3/meta";
+  testUrl: string = "https://api.jikan.moe/v3";
 
   constructor(private http: HttpClient) {}
 
-  get_detailed() {
-    return this.http.get(this.baseUrl + "/anime");
-  }
-
-  get_top_airing() {
-    return this.http.get(this.baseUrl + "/top/upcoming");
+  getSeasonalAnimes(): Observable<SeasonalAnime[]> {
+    console.log("Api Service works");
+    return this.http.get<SeasonalAnime[]>(`${this.testUrl}/season/2019/summer`);
   }
 }

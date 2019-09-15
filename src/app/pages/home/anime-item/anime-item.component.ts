@@ -1,7 +1,8 @@
 import { Component, OnInit } from "@angular/core";
-import { Anime } from "../../../api.model";
+
 import { ApiService } from "../../../api.service";
-import { Observable } from "rxjs";
+import { SeasonalAnime } from "src/app/api.model";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-anime-item",
@@ -9,11 +10,23 @@ import { Observable } from "rxjs";
   styleUrls: ["./anime-item.component.scss"]
 })
 export class AnimeItemComponent implements OnInit {
-  private anime: Anime[] = [];
-  private animeObservable: Observable<Anime[]>;
+  data: SeasonalAnime[];
 
-  
-  constructor(private apiService: ApiService) {}
-
-  ngOnInit() {}
+  constructor(private apiService: ApiService, private router: Router) {}
+  ngOnInit() {
+    this.getSeasonalAnimes();
+  }
+  getSeasonalAnimes() {
+    this.apiService.getSeasonalAnimes().subscribe(
+      data => {
+        this.data = data;
+        console.log(data);
+      },
+      err => console.error(err),
+      () => console.log("done loading foods")
+    );
+  }
+  toDetailPage(data) {
+    this.router.navigate(["/details", data.mal_id]);
+  }
 }

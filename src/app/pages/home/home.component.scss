@@ -19,16 +19,4 @@
       cursor: pointer;
     }
   }
-  .tile-row {
-    justify-content: center;
-    width: 100%;
-    margin-top: 2em;
-    display: grid;
-    grid-template-columns: repeat(5, 15%);
-    grid-template-rows: auto;
-    grid-gap: 2em;
-    h1 {
-      text-align: center;
-    }
-  }
 }

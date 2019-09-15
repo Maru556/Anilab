@@ -2,8 +2,7 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { HttpClientModule } from "@angular/common/http";
-import { RouterModule, Routes } from "@angular/router";
-import { AppRoutingModule } from "./app-routing.module";
+import { AppRoutingModule } from "../app/app-routing.module";
 import { MaterialModule } from "./material";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
@@ -21,17 +20,6 @@ import { AnimeDetailsComponent } from "./shared/anime-details/anime-details.comp
 import { AnimeItemComponent } from "./pages/home/anime-item/anime-item.component";
 import { ApiService } from "./api.service";
 
-//Basic Routing
-const appRoutes: Routes = [
-  { path: "top-anime", component: TopAnimeComponent },
-  { path: "seasonal-anime", component: SeasonalComponent },
-  { path: "schedule", component: ScheduleComponent },
-  { path: "profile", component: ProfileComponent },
-  { path: "login", component: LoginComponent },
-  { path: "details", component: AnimeDetailsComponent },
-  { path: "", component: HomeComponent }
-];
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +35,7 @@ const appRoutes: Routes = [
     AnimeItemComponent
   ],
   imports: [
-    RouterModule.forRoot(appRoutes),
+    AppRoutingModule,
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
