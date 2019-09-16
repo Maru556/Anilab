@@ -16,9 +16,13 @@ export interface AnimeDetail {
   trailer_url: string;
   broadcast: string;
   episodes: string;
+  gen: Themes[];
+}
+export interface Themes {
+  genres: string;
 }
 export interface Pictures {
-  pictures: BigPictures[];
+  pics: BigPictures[];
 }
 export interface BigPictures {
   large: string;

@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpParams } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { AnimeDetail, Pictures } from "../../api.model";
 @Component({
@@ -18,11 +18,14 @@ export class AnimeDetailsComponent implements OnInit {
     return this.http.get<AnimeDetail[]>(`${this.apiUrl}/anime/${this.animeId}`);
   }
   getPictures(): Observable<Pictures[]> {
+    let params = new HttpParams().set("large", "");
     console.log("api call works 2");
     return this.http.get<Pictures[]>(
-      `${this.apiUrl}/anime/${this.animeId}/pictures`
+      `${this.apiUrl}/anime/${this.animeId}/pictures`,
+      { params }
     );
   }
+
   img: Pictures[];
   data: AnimeDetail[];
   public animeId;

@@ -1,7 +1,9 @@
 <div *ngIf="data" class="main" style="padding-top: 64px">
   <!--Anime Detail Background-->
-  <div *ngIf="img" class="container" alt="">
-    <img src="{{ img.large}}" alt="">
+  <div class="container" alt="">
+    <!-- <ng-container *ngFor="let pics of img.pics">
+      <img src="{{pics.large[0]}}" alt="">
+    </ng-container> -->
     <div class="overlay"></div>
     <div class="row1">
       <h1 class="anime-name">{{data.title}}</h1>
@@ -21,6 +23,9 @@
         <div class="example-small-box mat-elevation-z4">
           <h1>Broadcast: {{data.broadcast}}</h1>
           <h1>Episodes: {{data.episodes}}</h1>
+          <div *ngFor="let genres of data.genres">
+            <h1>{{genres}}</h1>
+          </div>
           <h1></h1>
         </div>
       </mat-tab>

@@ -18,7 +18,6 @@ import { HeaderComponent } from "./shared/header/header.component";
 import { FooterComponent } from "./shared/footer/footer.component";
 import { AnimeDetailsComponent } from "./shared/anime-details/anime-details.component";
 import { AnimeItemComponent } from "./pages/home/anime-item/anime-item.component";
-import { ApiService } from "./api.service";
 
 @NgModule({
   declarations: [
@@ -43,7 +42,7 @@ import { ApiService } from "./api.service";
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [ApiService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
