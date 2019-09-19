@@ -5,16 +5,22 @@
   width: 100%;
   display: flex;
   z-index: -1;
-}
-
-.overlay {
-  height: 35vh;
-  width: 100%;
-  position: absolute;
-  background-color: rgb(0, 0, 0);
-  opacity: 0.2;
-  background: no-repeat center;
-  background-size: cover;
+  .anime-name {
+    font-size: 4em;
+  }
+  .overlay {
+    height: 35vh;
+    width: 100%;
+    position: absolute;
+    background-color: rgb(0, 0, 0);
+    opacity: 0.2;
+    img {
+      width: 100%;
+      height: inherit;
+      object-fit: cover;
+      object-position: 0 30%;
+    }
+  }
 }
 
 .row1 {
@@ -36,17 +42,61 @@
   width: 50%;
   align-items: flex-end;
   z-index: 1;
-}
-
-button {
-  font-size: $font-l;
-  border-style: none;
-  background: none;
-  cursor: pointer;
-  &:hover {
-    color: $pri-color;
+  button {
+    font-size: $font-l;
+    border-style: none;
+    background: none;
+    cursor: pointer;
+    &:hover {
+      color: $pri-color;
+    }
   }
 }
-#tab {
-  padding-top: 1em;
+
+.info {
+  height: fit-content;
+  width: 100%;
+  margin-top: 2em;
+  display: flex;
+  justify-content: space-around;
+  .mat-h2 {
+    font-family: Roboto, sans-serif;
+  }
+  .info_row {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    padding: 0;
+
+    .producers {
+      display: flex;
+      flex-direction: row;
+      flex-flow: wrap;
+    }
+  }
+  .synopsis {
+    width: 40%;
+    height: fit-content;
+    font-family: Roboto, sans-serif;
+
+    text-align: start;
+  }
+}
+
+.class-container {
+  width: 100%;
+  .characters {
+    display: flex;
+    width: 80%;
+    height: 200px;
+    justify-content: space-evenly;
+    img {
+      height: auto;
+      width: 100%;
+    }
+    .char {
+      display: flex;
+    }
+  }
 }

@@ -14,8 +14,7 @@ export class AnimeItemComponent implements OnInit {
   apiUrl: string = "https://api.jikan.moe/v3";
 
   data: SeasonalAnime[];
-
-  constructor(private router: Router, private http: HttpClient) {}
+  constructor(private router: Router, private http: HttpClient) { }
   ngOnInit() {
     this.getSeasonal();
   }
