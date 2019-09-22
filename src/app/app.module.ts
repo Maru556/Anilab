@@ -16,13 +16,7 @@ import { AngularFirestoreModule } from "@angular/fire/firestore";
 import { AuthService } from "./authentication/services/auth.service";
 
 const config = {
-  apiKey: "AIzaSyCBmBF7WemiaGz9FBhLcIzBauciZbYx2JE",
-  authDomain: "anilab-6be14.firebaseapp.com",
-  databaseURL: "https://anilab-6be14.firebaseio.com",
-  projectId: "anilab-6be14",
-  storageBucket: "anilab-6be14.appspot.com",
-  messagingSenderId: "257358841663",
-  appId: "1:257358841663:web:e363208f0c0b000360f58a"
+
 };
 
 //Components
