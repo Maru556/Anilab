@@ -1,23 +1,15 @@
-export interface SeasonalAnime {
-  anime: Animes[];
-}
-
-export interface Animes {
-  title: string;
-  image_url: string;
-  mal_id: number;
+export interface Anime {
+  anime: AnimeDetail[];
 }
 
 export interface AnimeDetail {
-  //top
+  mal_id: number;
   title: string;
   rank: number;
   score: number;
-  //synopsis tab
   synopsis: string;
-  //trailer tab
+  img_url: string;
   trailer_url: string;
-  //row 1
   broadcast: string;
   episodes: string;
   duration: string;
@@ -28,8 +20,11 @@ export interface AnimeDetail {
   status: string;
   type: string;
   aired: From;
+  genres: Genres[];
 }
-
+export interface Genres {
+  name: string;
+}
 export interface Prod {
   name: string;
 }
@@ -50,9 +45,9 @@ export interface Characters {
 export interface Character {
   image_url: string;
   name: string;
-  voice_actors: VA[];
+  voice_actors: Va[];
 }
-export interface VA {
+export interface Va {
   image_url: string;
   name: string;
 }
@@ -62,4 +57,8 @@ export interface Promo {
 }
 export interface Videos {
   video_url: string;
+}
+
+export interface Years {
+  id: number;
 }

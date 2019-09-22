@@ -1,1 +1,8 @@
-<p>profile works!</p>
+<div style="padding-top: 64px">
+    <a class="nav-link" (click)="authService.SignOut()">
+        <i class="fas fa-sign-out-alt"></i>Log out
+    </a>
+    <div class="row" *ngIf="authService.userData as user">
+        {{user.email}}
+    </div>
+</div>

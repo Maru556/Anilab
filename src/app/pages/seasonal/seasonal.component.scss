@@ -1,7 +1,8 @@
 @import "../../variables.scss";
 
 .nav {
-  height: 15vh;
+  height: 150px;
+  width: 100%;
   display: flex;
   align-items: center;
   h1 {
@@ -17,6 +18,9 @@
       justify-content: flex-end;
       mat-form-field {
         margin: 1em;
+        .mat-select-panel {
+          background: $deco-color;
+        }
       }
     }
     .season {
@@ -35,58 +39,78 @@
 }
 
 .cards {
-  display: flex;
-  justify-content: space-evenly;
-  margin: 0;
-}
-mat-card {
-  background-color: $bg-color;
-  margin-top: 3em;
-  width: 600px;
-  height: 500px;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-auto-rows: 450px;
+  gap: 2em;
+  grid-template-columns: repeat(2, 500px);
   justify-content: center;
-  .name {
+  margin-top: 2em;
+  h1 {
+    margin-bottom: 0;
   }
-  .score {
-    position: relative;
-    left: 4em;
-  }
+  mat-card {
+    background-color: $bg-color;
+    display: grid;
+    grid-template-rows: 1fr 0.5fr 0.5fr 0.5fr 250px;
+    .name {
+      grid-row: 1;
+      display: flex;
+      height: 100%;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    .score {
+      grid-row: 2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      mat-icon {
+        margin-bottom: 0;
+      }
+    }
+    .info {
+      grid-row: 3;
+      display: flex;
+      height: 100%;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      h1 {
+        margin-left: 10px;
+        margin-right: 10px;
+      }
+    }
+    .chips {
+      grid-row: 4;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      .chip {
+        margin: 1em;
+      }
+    }
+    .main-content {
+      grid-row: 5;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      height: 250px;
 
-  .info {
-    margin-top: 1em;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    h1 {
-      margin-bottom: 0;
-      margin-left: 1em;
-      margin-right: 1em;
-    }
-  }
-  .chips {
-    margin-top: 0.5em;
-    margin-bottom: 1em;
-  }
-  .main-content {
-    display: flex;
-    margin: 1em;
-    width: 100%;
-    height: 50%;
-    img {
-      width: 30%;
-      height: auto;
-      margin-right: 1em;
-    }
-    p {
-      font-family: "Roboto", sans-serif;
-      margin-left: 1em;
-      width: 70%;
-      height: auto;
-      overflow-x: scroll;
-      margin-bottom: 0px;
-      line-height: normal;
+      justify-content: space-evenly;
+      img {
+        grid-column: 1;
+        height: inherit;
+        object-fit: contain;
+        width: 100%;
+      }
+      p {
+        grid-column: 2;
+        font-family: "Roboto", sans-serif;
+        object-fit: fill;
+        overflow-x: scroll;
+        margin-bottom: 0px;
+        line-height: normal;
+      }
     }
   }
 }

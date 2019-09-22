@@ -12,10 +12,11 @@ import { MatButtonModule } from "@angular/material/button";
 import { MatSelectModule } from "@angular/material/select";
 import { MatDividerModule } from "@angular/material/divider";
 import { MatChipsModule } from "@angular/material/chips";
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-
-
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatInputModule } from "@angular/material/input";
+import { MatDialogModule } from "@angular/material/dialog";
+import { MatPasswordStrengthModule } from "@angular-material-extensions/password-strength";
+import { MatSnackBarModule } from "@angular/material/snack-bar";
 
 @NgModule({
   imports: [
@@ -31,7 +32,10 @@ import { MatInputModule } from '@angular/material/input';
     MatDividerModule,
     MatChipsModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatDialogModule,
+    MatPasswordStrengthModule,
+    MatSnackBarModule
   ],
   exports: [
     BrowserAnimationsModule,
@@ -46,10 +50,13 @@ import { MatInputModule } from '@angular/material/input';
     MatDividerModule,
     MatChipsModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatDialogModule,
+    MatPasswordStrengthModule,
+    MatSnackBarModule
   ],
   providers: [
     { provide: MAT_RIPPLE_GLOBAL_OPTIONS, useValue: { disabled: true } }
   ]
 })
-export class MaterialModule { }
+export class MaterialModule {}

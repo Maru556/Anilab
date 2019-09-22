@@ -6,7 +6,7 @@
   display: flex;
   z-index: -1;
   .anime-name {
-    font-size: 4em;
+    font-size: 3em;
   }
   .overlay {
     height: 35vh;
@@ -53,6 +53,7 @@
   }
 }
 
+//Info Tab
 .info {
   height: fit-content;
   width: 100%;
@@ -74,6 +75,11 @@
       flex-direction: row;
       flex-flow: wrap;
     }
+    .genres {
+      display: flex;
+      flex-direction: row;
+      flex-flow: wrap;
+    }
   }
   .synopsis {
     width: 40%;
@@ -84,19 +90,74 @@
   }
 }
 
+//Trailer tab
+.vid {
+  padding: 3em;
+  width: 60%;
+  margin: 0 auto;
+  [style*="--aspect-ratio"] > :first-child {
+    width: 100%;
+  }
+  [style*="--aspect-ratio"] > img {
+    height: auto;
+  }
+  @supports (--custom: property) {
+    [style*="--aspect-ratio"] {
+      position: relative;
+    }
+    [style*="--aspect-ratio"]::before {
+      content: "";
+      display: block;
+      padding-bottom: calc(100% / (var(--aspect-ratio)));
+    }
+    [style*="--aspect-ratio"] > :first-child {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+    }
+  }
+}
+//Character Tab
 .class-container {
   width: 100%;
+  height: fit-content;
   .characters {
-    display: flex;
-    width: 80%;
-    height: 200px;
-    justify-content: space-evenly;
-    img {
-      height: auto;
-      width: 100%;
+    margin-top: 2em;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 5fr 1fr 10px 5fr 10fr 5fr 10px 1fr 5fr;
+    grid-auto-rows: 50px;
+    justify-content: center;
+    .char_img {
+      grid-column: 2;
+      grid-row: 1;
+      width: auto;
+      height: 50px;
     }
-    .char {
-      display: flex;
+    .char_name {
+      grid-column: 4;
+      grid-row: 1;
+      margin: 0;
+      align-self: center;
     }
+    .va_img {
+      grid-column: 8;
+      width: auto;
+      height: 50px;
+      grid-row: 1;
+      justify-self: end;
+    }
+    .va_name {
+      grid-column: 6;
+      grid-row: 1;
+      margin: 0;
+      align-self: center;
+      justify-self: end;
+    }
+  }
+  .no_info {
+    text-align: center;
+    margin-top: 2em;
   }
 }

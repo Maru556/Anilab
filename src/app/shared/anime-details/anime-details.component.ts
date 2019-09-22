@@ -2,7 +2,9 @@ import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { HttpClient, HttpParams } from "@angular/common/http";
 import { Observable } from "rxjs";
-import { AnimeDetail, Pictures, Characters, Promo } from "../../api.model";
+import { AnimeDetail, Pictures, Characters } from "../../api.model";
+import { DomSanitizer } from "@angular/platform-browser";
+import { SafeResourceUrlPipe } from "../../safe-resource-url.pipe";
 
 @Component({
   selector: "app-anime-details",
@@ -10,11 +12,9 @@ import { AnimeDetail, Pictures, Characters, Promo } from "../../api.model";
   styleUrls: ["./anime-details.component.scss"]
 })
 export class AnimeDetailsComponent implements OnInit {
-
   //api url to connect to MAL API
   apiUrl: string = "https://api.jikan.moe/v3";
   public animeId;
-
 
   //Functions
 
@@ -22,6 +22,7 @@ export class AnimeDetailsComponent implements OnInit {
   getApiDetails(): Observable<AnimeDetail[]> {
     return this.http.get<AnimeDetail[]>(`${this.apiUrl}/anime/${this.animeId}`);
   }
+
   getAnimeDetails() {
     this.getApiDetails().subscribe(
       data => {
@@ -54,7 +55,9 @@ export class AnimeDetailsComponent implements OnInit {
 
   //api call to get character info based on id
   getCharacters(): Observable<Characters[]> {
-    return this.http.get<Characters[]>(`${this.apiUrl}/anime/${this.animeId}/characters_staff`);
+    return this.http.get<Characters[]>(
+      `${this.apiUrl}/anime/${this.animeId}/characters_staff`
+    );
   }
   getAnimeCharacters() {
     this.getCharacters().subscribe(
@@ -64,40 +67,23 @@ export class AnimeDetailsComponent implements OnInit {
       },
       err => console.log(err),
       () => console.log("done loading characters")
-    )
+    );
   }
   info: Characters[];
 
-  //api call to get Videos based on id
-  // getVideos(): Observable<Promo[]> {
-  //   return this.http.get<Promo[]>(`${this.apiUrl}/anime/${this.animeId}/videos`);
-  // }
-  // getAnimeVideos() {
-  //   this.getVideos().subscribe(
-  //     video => {
-  //       this.video = video;
-  //       console.log(video);
-  //     },
-  //     err => console.log(err),
-  //     () => console.log("done loading characters")
-  //   )
-  // }
-  // video: Promo[];
-
-  constructor(private route: ActivatedRoute, private http: HttpClient) { }
+  constructor(
+    private route: ActivatedRoute,
+    private http: HttpClient,
+    private sanitizer: DomSanitizer
+  ) {}
 
   ngOnInit() {
     //getting the id from routing
     let id = parseInt(this.route.snapshot.paramMap.get("id"));
     this.animeId = id;
-
     //initiatig funvtions
     this.getAnimeDetails();
     this.getAnimePictures();
     this.getAnimeCharacters();
-    //this.getAnimeVideos();
   }
-
-
-
 }

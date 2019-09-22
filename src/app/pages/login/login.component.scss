@@ -10,37 +10,38 @@
     fixed;
   background-size: cover;
   mat-tab-group {
-    height: 600px;
-    width: 30%;
+    height: 500px;
+    width: 40%;
     background-color: $bg-color;
     .login {
       display: flex;
-      height: 552px;
+      height: 400px;
+      width: 100%;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
-      position: relative;
-      overflow: unset;
+      justify-content: center;
       h1 {
-        margin-bottom: 2em;
+        margin-top: 2em;
       }
       mat-form-field {
         width: 80%;
         margin: 0.5em;
       }
       button {
-        margin-top: 3em;
+        margin-top: 1em;
+      }
+      .fpw {
+        cursor: pointer;
       }
     }
     .register {
       display: flex;
-      height: 552px;
+      height: 400px;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      position: relative;
       h1 {
-        margin-bottom: 1em;
+        margin-top: 2em;
       }
       mat-form-field {
         width: 80%;

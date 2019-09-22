@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 
-import { SeasonalAnime, AnimeDetail } from "src/app/api.model";
+import { AnimeDetail } from "src/app/api.model";
 import { Router } from "@angular/router";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
@@ -13,14 +13,14 @@ import { Observable } from "rxjs";
 export class AnimeItemComponent implements OnInit {
   apiUrl: string = "https://api.jikan.moe/v3";
 
-  data: SeasonalAnime[];
-  constructor(private router: Router, private http: HttpClient) { }
+  data: AnimeDetail[];
+  constructor(private router: Router, private http: HttpClient) {}
   ngOnInit() {
     this.getSeasonal();
   }
-  getSeasonalAnimes(): Observable<SeasonalAnime[]> {
+  getSeasonalAnimes(): Observable<AnimeDetail[]> {
     console.log("api call works");
-    return this.http.get<SeasonalAnime[]>(`${this.apiUrl}/season/2019/summer`);
+    return this.http.get<AnimeDetail[]>(`${this.apiUrl}/season/2019/summer`);
   }
   getSeasonal() {
     this.getSeasonalAnimes().subscribe(

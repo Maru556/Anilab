@@ -11,6 +11,7 @@ body {
   background-color: #1a1a1a;
   box-sizing: border-box;
   font-size: 16px;
+  height: 100vh;
 }
 
 ::-webkit-scrollbar {
@@ -78,9 +79,11 @@ mat-icon {
 
 input.mat-input-element {
   color: white;
+  font-family: "BebasNeueRegular", sans-serif;
 }
 .mat-form-field.mat-focused .mat-form-field-label {
   color: #c3073f;
+  font-family: "BebasNeueRegular", sans-serif;
 }
 //mat-chip
 .mat-chip.mat-standard-chip {
@@ -98,4 +101,27 @@ input.mat-input-element {
 //button
 .mat-flat-button {
   background: #c3073f;
+}
+
+//dialog pop-up
+.mat-dialog-container {
+  background-color: #1a1a1a;
+  h1 {
+    font-family: "BebasNeueRegular", sans-serif;
+  }
+  mat-form-field {
+    width: 100%;
+    font-family: "BebasNeueRegular", sans-serif;
+    input {
+      width: 100%;
+    }
+  }
+  .btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    button {
+      font-family: "BebasNeueRegular", sans-serif;
+    }
+  }
 }

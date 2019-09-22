@@ -1,71 +1,54 @@
 <div class="container">
-  <mat-tab-group mat-align-tabs="center" class="mat-elevation-z6">
-    <!-- Login -->
+  <mat-tab-group mat-align-tabs="center" class="mat-elevation-z5">
     <mat-tab label="Login">
       <div class="login">
-        <h1 class="mat-h1">Welcome Back!</h1>
+        <h1 class="mat-h2">Welcome Back!</h1>
         <mat-form-field>
-          <input
-            matInput
-            placeholder="Enter your email"
-            [formControl]="email"
-            required
-          />
-          <mat-error *ngIf="email.invalid">{{ getErrorMessage() }}</mat-error>
+          <input autocomplete="off" matInput type="email" [formControl]="emailFormControl" class="formControl"
+            placeholder="Email" #userEmail required>
+          <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+            Please enter a valid email address
+          </mat-error>
+          <mat-error *ngIf="emailFormControl.hasError('required')">
+            Email is <strong>required</strong>
+          </mat-error>
         </mat-form-field>
+
         <mat-form-field>
-          <input
-            matInput
-            placeholder="Enter your password"
-            [formControl]=""
-            required
-          />
-          <mat-error></mat-error>
+          <mat-pass-toggle-visibility #toggle1 matSuffix></mat-pass-toggle-visibility>
+          <input autocomplete="off" matInput type="password" [type]="toggle1.type" class="formControl"
+            placeholder="Password" #userPassword required>
         </mat-form-field>
-        <button mat-flat-button>Log In</button>
+
+        <button mat-flat-button value="Log in" (click)="authService.SignIn(userEmail.value, userPassword.value)">Login
+        </button>
+        <h1 class="mat-h3 fpw" (click)="openDialog()">Forgot Your Password?</h1>
       </div>
     </mat-tab>
-
-    <!-- Register -->
     <mat-tab label="Register">
       <div class="register">
-        <h1 class="mat-h1">Welcome to Anilab!</h1>
+        <h1 class="mat-h2">Welcome To Anilab!</h1>
         <mat-form-field>
-          <input
-            matInput
-            placeholder="Enter your username"
-            [formControl]=""
-            required
-          />
+          <input autocomplete="off" matInput type="email" [formControl]="emailFormControl" class="formControl"
+            placeholder="Email" #userRegEmail required>
+          <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+            Please enter a valid email address
+          </mat-error>
+          <mat-error *ngIf="emailFormControl.hasError('required')">
+            Email is <strong>required</strong>
+          </mat-error>
         </mat-form-field>
+
         <mat-form-field>
-          <input
-            matInput
-            placeholder="Enter your email"
-            [formControl]="email"
-            required
-          />
-          <mat-error *ngIf="email.invalid">{{ getErrorMessage() }}</mat-error>
+          <mat-pass-toggle-visibility #toggle2 matSuffix></mat-pass-toggle-visibility>
+          <input autocomplete="off" matInput type="password" [type]="toggle2.type" class="formControl"
+            placeholder="Password" #userRegPassword required>
         </mat-form-field>
-        <mat-form-field>
-          <input
-            matInput
-            placeholder="Enter your password"
-            [formControl]=""
-            required
-          />
-          <mat-error></mat-error>
-        </mat-form-field>
-        <mat-form-field>
-          <input
-            matInput
-            placeholder="Re-Enter your password"
-            [formControl]=""
-            required
-          />
-          <mat-error></mat-error>
-        </mat-form-field>
-        <button mat-flat-button>Register</button>
+
+        <button mat-flat-button value="Register"
+          (click)="authService.SignUp(userRegEmail.value, userRegPassword.value)">Register
+        </button>
+
       </div>
     </mat-tab>
   </mat-tab-group>

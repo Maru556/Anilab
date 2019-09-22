@@ -2,26 +2,17 @@
   <div class="nav mat-elevation-z4">
     <h1>Seasonal Anime</h1>
     <div class="sub">
-      <h1 class="season mat-h1">Current Season</h1>
+      <h1 class="season mat-h1">{{selectedSeason}} {{selectedYear}}</h1>
       <div class="select">
         <mat-form-field>
-          <mat-label>Year</mat-label>
-          <mat-select>
-            <mat-option>2019</mat-option>
-            <mat-option>2019</mat-option>
-            <mat-option>2019</mat-option>
-            <mat-option>2019</mat-option>
-            <mat-option>2019</mat-option>
+          <mat-select placeholder="Season" [(ngModel)]="selectedSeason" (ngModelChange)="getUserInput($event)">
+            <mat-option *ngFor="let season of seasons" [value]="season.value">{{season.season}}</mat-option>
           </mat-select>
         </mat-form-field>
         <mat-form-field>
-          <mat-label>Season</mat-label>
-          <mat-select>
-            <mat-option>2019</mat-option>
-            <mat-option>2019</mat-option>
-            <mat-option>2019</mat-option>
-            <mat-option>2019</mat-option>
-            <mat-option>2019</mat-option>
+          <mat-select placeholder="Year" [(ngModel)]="selectedYear" (ngModelChange)="getUserInput($event)">
+            <mat-option *ngFor="let year of years.availableYears | reverse" [value]="year.id">
+              {{year.id}}</mat-option>
           </mat-select>
         </mat-form-field>
       </div>
@@ -32,97 +23,72 @@
       <h1>Tv</h1>
     </div>
     <mat-divider></mat-divider>
-    <div class="cards">
-      <mat-card class="mat-elevation-z6">
-        <h1 class="name">Anime Name</h1>
-        <h1 class="score">8.2 <mat-icon>star</mat-icon></h1>
-        <div class="info">
-          <h1 class="mat-h3">Studiohhhhhhh</h1>
-          <h1 class="mat-h3">Eps</h1>
-          <h1 class="mat-h3">Manga</h1>
+    <div>
+      <div class="cards" *ngIf="data">
+        <ng-container *ngFor="let info of data.anime">
+          <ng-container *ngIf="info.r18 != true && info.type == 'TV'">
+            <mat-card (click)="toDetailPage(info)" class="mat-elevation-z6">
+              <h1 class="name mat-h1">{{info.title}}</h1>
+              <h1 class="score mat-h2">{{info.score || '8.32'}}<mat-icon class="mat-h2">star</mat-icon>
+              </h1>
+              <div class="info">
+                <ng-container *ngFor="let prod of info.producers">
+                  <h1 class="mat-h4">{{prod.name}}</h1>
+                </ng-container>
+                <h1 class="mat-h4">{{info.episodes || 'X'}} Eps.</h1>
+                <h1 class="mat-h4"> {{info.source}} </h1>
+              </div>
+              <div class="chips">
+                <ng-container *ngFor="let chip of info.genres">
+                  <div class="mat-h5 chip"> {{chip.name}} </div>
+                </ng-container>
+              </div>
+              <div class="main-content">
+                <img src="{{info.image_url}}" alt="" />
+                <p class="mat-h3">
+                  {{info.synopsis}}
+                </p>
+              </div>
+            </mat-card>
+          </ng-container>
+        </ng-container>
+      </div>
+    </div>
+    <div class="category">
+      <div class="heading">
+        <h1>Movies</h1>
+      </div>
+      <mat-divider></mat-divider>
+      <div>
+        <div class="cards" *ngIf="data">
+          <ng-container *ngFor="let info of data.anime">
+            <ng-container *ngIf="info.r18 != true && info.type == 'Movie'">
+              <mat-card (click)="toDetailPage(info)" class="mat-elevation-z6">
+                <h1 class="name mat-h1">{{info.title}}</h1>
+                <h1 class="score mat-h2">{{info.score || '8.32'}}<mat-icon class="mat-h2">star</mat-icon>
+                </h1>
+                <div class="info">
+                  <ng-container *ngFor="let prod of info.producers">
+                    <h1 class="mat-h4">{{prod.name}}</h1>
+                  </ng-container>
+                  <h1 class="mat-h4">{{info.episodes || 'X'}} Eps.</h1>
+                  <h1 class="mat-h4"> {{info.source}} </h1>
+                </div>
+                <div class="chips">
+                  <ng-container *ngFor="let chip of info.genres">
+                    <div class="mat-h5 chip"> {{chip.name}} </div>
+                  </ng-container>
+                </div>
+                <div class="main-content">
+                  <img src="{{info.image_url}}" alt="" />
+                  <p class="mat-h3">
+                    {{info.synopsis}}
+                  </p>
+                </div>
+              </mat-card>
+            </ng-container>
+          </ng-container>
         </div>
-        <div class="chips">
-          <mat-chip-list>
-            <mat-chip>tag</mat-chip>
-            <mat-chip>tag</mat-chip>
-            <mat-chip>tag</mat-chip>
-            <mat-chip>tag</mat-chip>
-            <mat-chip>taggggg</mat-chip>
-          </mat-chip-list>
-        </div>
-        <div class="main-content">
-          <img src="../../../assets/images/fmacover.jpg" alt="" />
-          <p class="mat-h3">
-            Seeking to restore humanity’s diminishing hope, the Survey Corps
-            embark on a mission to retake Wall Maria, where the battle against
-            the merciless "Titans" takes the stage once again. Returning to the
-            tattered Shiganshina District that was once his home, Eren Yeager
-            and the Corps find the town oddly unoccupied by Titans. Even after
-            the outer gate is plugged, they strangely encounter no opposition.
-            The mission progresses smoothly until Armin Arlert, highly
-            suspicious of the enemy's absence, discovers distressing signs of a
-            potential scheme against them. Seeking to restore humanity’s
-            diminishing hope, the Survey Corps embark on a mission to retake
-            Wall Maria, where the battle against the merciless "Titans" takes
-            the stage once again. Returning to the tattered Shiganshina District
-            that was once his home, Eren Yeager and the Corps find the town
-            oddly unoccupied by Titans. Even after the outer gate is plugged,
-            they strangely encounter no opposition. The mission progresses
-            smoothly until Armin Arlert, highly suspicious of the enemy's
-            absence, discovers distressing signs of a potential scheme against
-            them. Seeking to restore humanity’s diminishing hope, the Survey
-            Corps embark on a mission to retake Wall Maria, where the battle
-            against the merciless "Titans" takes the stage once again. Returning
-            to the tattered Shiganshina District that was once his home, Eren
-            Yeager and the Corps find the town oddly unoccupied by Titans. Even
-            after the outer gate is plugged, they strangely encounter no
-            opposition. The mission progresses smoothly until Armin Arlert,
-            highly suspicious of the enemy's absence, discovers distressing
-            signs of a potential scheme against them.Seeking to restore
-            humanity’s diminishing hope, the Survey Corps embark on a mission to
-            retake Wall Maria, where the battle against the merciless "Titans"
-            takes the stage once again. Returning to the tattered Shiganshina
-            District that was once his home, Eren Yeager and the Corps find the
-            town oddly unoccupied by Titans. Even after the outer gate is
-            plugged, they strangely encounter no opposition. The mission
-            progresses smoothly until Armin Arlert, highly suspicious of the
-            enemy's absence, discovers distressing signs of a potential scheme
-            against them.
-          </p>
-        </div>
-        <button mat-flat-button>+ Add</button>
-      </mat-card>
+      </div>
     </div>
   </div>
-  <div class="category">
-    <div class="heading">
-      <h1>Movie</h1>
-    </div>
-    <mat-divider></mat-divider>
-    <div class="cards">
-      <mat-card class="mat-elevation-z6">
-        <h1 class="name">Anime Name</h1>
-        <h1 class="score">8.2 <mat-icon>star</mat-icon></h1>
-        <div class="info">
-          <h1 class="mat-h3">Studiohhhhhhh</h1>
-          <h1 class="mat-h3">Eps</h1>
-          <h1 class="mat-h3">Manga</h1>
-        </div>
-        <div class="chips">
-          <mat-chip-list>
-            <mat-chip>tag</mat-chip>
-            <mat-chip>tag</mat-chip>
-            <mat-chip>tag</mat-chip>
-            <mat-chip>tag</mat-chip>
-            <mat-chip>taggggg</mat-chip>
-          </mat-chip-list>
-        </div>
-        <div class="main-content">
-          <img src="../../../assets/images/fmacover.jpg" alt="" />
-          <p class="mat-h5"></p>
-        </div>
-        <button mat-flat-button>+ Add</button>
-      </mat-card>
-    </div>
-  </div>
-</div>
