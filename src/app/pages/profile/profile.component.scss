@@ -1,0 +1,88 @@
+@import "../../variables.scss";
+
+.profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
+  margin: 3em;
+  .top {
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    .user-img {
+      height: 70px;
+      width: 70px;
+      border-radius: 50%;
+      img {
+        height: 100%;
+        width: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+    }
+  }
+  .info {
+    margin-top: 3em;
+    .email {
+      display: flex;
+      flex-direction: column;
+      .shown {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        button {
+          margin-left: 2em;
+          mat-icon {
+            font-size: 20px;
+          }
+        }
+      }
+      .hidden {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        mat-form-field {
+          width: 100%;
+        }
+        button {
+          height: 50%;
+          margin-left: 1em;
+        }
+      }
+    }
+    .uname {
+      .shown {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        button {
+          margin-left: 2em;
+          mat-icon {
+            font-size: 20px;
+          }
+        }
+      }
+      .hidden {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        mat-form-field {
+          width: 100%;
+        }
+        button {
+          height: 50%;
+          margin-left: 1em;
+        }
+      }
+    }
+  }
+}

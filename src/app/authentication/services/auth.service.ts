@@ -1,6 +1,5 @@
 import { Injectable, NgZone } from "@angular/core";
-import { User } from "../services/user";
-import { auth } from "firebase/app";
+import { User, UpdateUser } from "../services/user";
 import { AngularFireAuth } from "@angular/fire/auth";
 import {
   AngularFirestore,
@@ -8,13 +7,14 @@ import {
 } from "@angular/fire/firestore";
 import { Router } from "@angular/router";
 import { NotyfService } from "ng-notyf";
+import * as firebase from "firebase";
 
 @Injectable({
   providedIn: "root"
 })
 export class AuthService {
   userData: any; // Save logged in user data
-
+  updateUserData: any;
   constructor(
     public afs: AngularFirestore, // Inject Firestore service
     public afAuth: AngularFireAuth, // Inject Firebase auth service
@@ -97,26 +97,6 @@ export class AuthService {
   get isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem("user"));
     return user !== null && user.emailVerified !== false ? true : false;
-  }
-
-  // Sign in with Google
-  GoogleAuth() {
-    return this.AuthLogin(new auth.GoogleAuthProvider());
-  }
-
-  // Auth logic to run auth providers
-  AuthLogin(provider) {
-    return this.afAuth.auth
-      .signInWithPopup(provider)
-      .then(result => {
-        this.ngZone.run(() => {
-          this.router.navigate(["/profile"]);
-        });
-        this.SetUserData(result.user);
-      })
-      .catch(error => {
-        window.alert(error);
-      });
   }
 
   /* Setting up user data when sign in with username/password, 

@@ -15,9 +15,7 @@ import { AngularFireAuthModule } from "@angular/fire/auth";
 import { AngularFirestoreModule } from "@angular/fire/firestore";
 import { AuthService } from "./authentication/services/auth.service";
 
-const config = {
-
-};
+const config = {};
 
 //Components
 import { AppComponent } from "./app.component";
