@@ -62,3 +62,35 @@ export interface Videos {
 export interface Years {
   id: number;
 }
+
+export interface TopUpcoming {
+  rank: number;
+  title: number;
+  image_url: string;
+  score: string;
+  type: string;
+}
+
+export interface TopAiring {
+  rank: number;
+  title: number;
+  image_url: string;
+  score: string;
+  type: string;
+}
+
+export interface TopMovies {
+  rank: number;
+  title: number;
+  image_url: string;
+  score: string;
+  type: string;
+}
+
+export interface TopTV {
+  rank: number;
+  title: number;
+  image_url: string;
+  score: string;
+  type: string;
+}

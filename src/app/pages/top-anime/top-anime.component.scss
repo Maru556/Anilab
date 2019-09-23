@@ -1,4 +1,4 @@
-@import "../../variables.scss";
+@import '../../variables.scss';
 
 .container {
   height: 35vh;
@@ -20,7 +20,7 @@
   position: absolute;
   background-color: rgb(0, 0, 0);
   opacity: 0.2;
-  background: url("../../../assets/images/fma.jpg") no-repeat center;
+  background: url('../../../assets/images/fma.jpg') no-repeat center;
   background-size: cover;
   z-index: 0;
 }
@@ -50,6 +50,7 @@ mat-card {
   background-color: $bg-color;
   justify-content: space-around;
   align-items: center;
+  padding: 0;
   .info {
     flex-basis: 40%;
   }
@@ -59,9 +60,14 @@ mat-card {
       margin-left: 0.5em;
     }
   }
-  img {
-    height: 80%;
-    width: auto;
+  .img-con {
+    height: 100%;
+    width: 190px;
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
   }
   button {
     font-size: $font-l;

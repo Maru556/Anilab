@@ -1,4 +1,4 @@
-@import "../../variables.scss";
+@import '../../variables.scss';
 
 .container {
   height: 35vh;
@@ -13,7 +13,7 @@
     width: 100%;
     position: absolute;
     background-color: rgb(0, 0, 0);
-    opacity: 0.2;
+    opacity: 0.1;
     img {
       width: 100%;
       height: inherit;
@@ -62,6 +62,7 @@
   justify-content: space-around;
   .mat-h2 {
     font-family: Roboto, sans-serif;
+    font-size: 1em;
   }
   .info_row {
     width: 40%;
@@ -95,22 +96,22 @@
   padding: 3em;
   width: 60%;
   margin: 0 auto;
-  [style*="--aspect-ratio"] > :first-child {
+  [style*='--aspect-ratio'] > :first-child {
     width: 100%;
   }
-  [style*="--aspect-ratio"] > img {
+  [style*='--aspect-ratio'] > img {
     height: auto;
   }
   @supports (--custom: property) {
-    [style*="--aspect-ratio"] {
+    [style*='--aspect-ratio'] {
       position: relative;
     }
-    [style*="--aspect-ratio"]::before {
-      content: "";
+    [style*='--aspect-ratio']::before {
+      content: '';
       display: block;
       padding-bottom: calc(100% / (var(--aspect-ratio)));
     }
-    [style*="--aspect-ratio"] > :first-child {
+    [style*='--aspect-ratio'] > :first-child {
       position: absolute;
       top: 0;
       left: 0;

@@ -29,7 +29,7 @@
           <ng-container *ngIf="info.r18 != true && info.type == 'TV'">
             <mat-card (click)="toDetailPage(info)" class="mat-elevation-z6">
               <h1 class="name mat-h1">{{info.title}}</h1>
-              <h1 class="score mat-h2">{{info.score || '8.32'}}<mat-icon class="mat-h2">star</mat-icon>
+              <h1 class="score mat-h2">{{info.score || 'X'}}<mat-icon class="mat-h2">star</mat-icon>
               </h1>
               <div class="info">
                 <ng-container *ngFor="let prod of info.producers">

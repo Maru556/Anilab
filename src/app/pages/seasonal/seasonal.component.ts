@@ -1,16 +1,15 @@
-import { Component, OnInit } from "@angular/core";
-
-import { AnimeDetail } from "src/app/api.model";
-import { Router } from "@angular/router";
-import { HttpClient } from "@angular/common/http";
+import { Component, OnInit } from '@angular/core';
+import { AnimeDetail } from 'src/app/api.model';
+import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
-  selector: "app-seasonal",
-  templateUrl: "./seasonal.component.html",
-  styleUrls: ["./seasonal.component.scss"]
+  selector: 'app-seasonal',
+  templateUrl: './seasonal.component.html',
+  styleUrls: ['./seasonal.component.scss']
 })
 export class SeasonalComponent implements OnInit {
-  apiUrl: string = "https://api.jikan.moe/v3";
+  apiUrl: string = 'https://api.jikan.moe/v3';
 
   data: AnimeDetail[];
   constructor(private router: Router, private http: HttpClient) {}
@@ -26,11 +25,11 @@ export class SeasonalComponent implements OnInit {
           console.log(data);
         },
         err => console.error(err),
-        () => console.log("done loading details")
+        () => console.log('done loading details')
       );
   }
   toDetailPage(data) {
-    this.router.navigate(["/details", data.mal_id]);
+    this.router.navigate(['/details', data.mal_id]);
   }
   //Had to generate an array of years
   public years;
@@ -52,21 +51,20 @@ export class SeasonalComponent implements OnInit {
   //Select options
 
   getUserInput() {
-    if (this.selectedSeason != "" && this.selectedYear != {}) {
+    if (this.selectedSeason != '' && this.selectedYear != {}) {
       this.getSeasonal();
     }
   }
 
   seasons = [
-    { value: "winter", season: "Winter" },
-    { value: "spring", season: "Spring" },
-    { value: "summer", season: "Summer" },
-    { value: "fall", season: "Fall" }
+    { value: 'winter', season: 'Winter' },
+    { value: 'spring', season: 'Spring' },
+    { value: 'summer', season: 'Summer' },
+    { value: 'fall', season: 'Fall' }
   ];
-  selectedSeason = "fall" || "";
+  selectedSeason = 'fall' || '';
   ngOnInit() {
     this.getYears();
-
     this.getUserInput();
     console.log(this.selectedSeason);
   }
