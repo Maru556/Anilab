@@ -69,6 +69,7 @@ export interface TopUpcoming {
   image_url: string;
   score: string;
   type: string;
+  mal_id: number;
 }
 
 export interface TopAiring {
@@ -77,6 +78,16 @@ export interface TopAiring {
   image_url: string;
   score: string;
   type: string;
+  mal_id: number;
+}
+
+export interface TopTv {
+  rank: number;
+  title: number;
+  image_url: string;
+  score: string;
+  type: string;
+  mal_id: number;
 }
 
 export interface TopMovies {
@@ -85,12 +96,14 @@ export interface TopMovies {
   image_url: string;
   score: string;
   type: string;
+  mal_id: number;
 }
 
-export interface TopTV {
-  rank: number;
-  title: number;
+export interface Results {
+  results: Search[];
+}
+export interface Search {
   image_url: string;
-  score: string;
-  type: string;
+  title: string;
+  score: number;
 }

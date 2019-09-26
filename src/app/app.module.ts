@@ -9,6 +9,7 @@ import { NgArrayPipesModule } from "../../node_modules/ngx-pipes";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NotyfModule } from "ng-notyf";
 
+
 //Firebase
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireAuthModule } from "@angular/fire/auth";
@@ -18,7 +19,6 @@ import { AuthService } from "./authentication/services/auth.service";
 const config = {
 
 };
-
 //Components
 import { AppComponent } from "./app.component";
 import { HomeComponent } from "./pages/home/home.component";
@@ -37,6 +37,7 @@ import { AnimeDetailsComponent } from "./shared/anime-details/anime-details.comp
 import { AnimeItemComponent } from "./pages/home/anime-item/anime-item.component";
 import { SafeResourceUrlPipe } from "./safe-resource-url.pipe";
 import { EmailVerificationComponent } from "./authentication/email-verification/email-verification.component";
+import { SearchComponent } from './pages/search/search.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { EmailVerificationComponent } from "./authentication/email-verification/
     AnimeItemComponent,
     SafeResourceUrlPipe,
     EmailVerificationComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    SearchComponent
   ],
   imports: [
     AppRoutingModule,
@@ -74,4 +76,4 @@ import { EmailVerificationComponent } from "./authentication/email-verification/
   providers: [AuthService],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

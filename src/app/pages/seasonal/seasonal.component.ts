@@ -12,7 +12,7 @@ export class SeasonalComponent implements OnInit {
   apiUrl: string = 'https://api.jikan.moe/v3';
 
   data: AnimeDetail[];
-  constructor(private router: Router, private http: HttpClient) {}
+  constructor(private router: Router, private http: HttpClient) { }
 
   getSeasonal() {
     return this.http
@@ -68,5 +68,5 @@ export class SeasonalComponent implements OnInit {
     this.getUserInput();
     console.log(this.selectedSeason);
   }
-  ngDoCheck() {}
+  ngDoCheck() { }
 }

@@ -7,7 +7,6 @@ import {
 } from "@angular/fire/firestore";
 import { Router } from "@angular/router";
 import { NotyfService } from "ng-notyf";
-import * as firebase from "firebase";
 
 @Injectable({
   providedIn: "root"

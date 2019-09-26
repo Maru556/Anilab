@@ -1,13 +1,22 @@
 <div class="main">
   <div class="container">
-    <h1 class="mat-h1">Welcome to </h1>
+    <h1 class="mat-h1">Welcome to</h1>
     <h1 class="mat-display-4">Anilab</h1>
     <form action="">
       <mat-form-field>
-        <input autocomplete="off" placeholder="Search" matInput input="search">
+        <input
+          #box
+          (keyup.enter)="getSearchPara(box.value)"
+          autocomplete="off"
+          placeholder="Search"
+          matInput
+          input="search"
+        />
       </mat-form-field>
     </form>
     <div class="overlay"></div>
-    <div class="bg-img"><img src="../../../assets/images/kime.jpg" alt=""></div>
+    <div class="bg-img">
+      <img src="../../../assets/images/kime.jpg" alt="" />
+    </div>
   </div>
 </div>

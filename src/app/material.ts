@@ -17,6 +17,7 @@ import { MatInputModule } from "@angular/material/input";
 import { MatDialogModule } from "@angular/material/dialog";
 import { MatPasswordStrengthModule } from "@angular-material-extensions/password-strength";
 import { MatSnackBarModule } from "@angular/material/snack-bar";
+import { NgMatSearchBarModule } from 'ng-mat-search-bar';
 
 @NgModule({
   imports: [
@@ -35,7 +36,8 @@ import { MatSnackBarModule } from "@angular/material/snack-bar";
     MatInputModule,
     MatDialogModule,
     MatPasswordStrengthModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    NgMatSearchBarModule
   ],
   exports: [
     BrowserAnimationsModule,
@@ -53,10 +55,11 @@ import { MatSnackBarModule } from "@angular/material/snack-bar";
     MatInputModule,
     MatDialogModule,
     MatPasswordStrengthModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    NgMatSearchBarModule
   ],
   providers: [
     { provide: MAT_RIPPLE_GLOBAL_OPTIONS, useValue: { disabled: true } }
   ]
 })
-export class MaterialModule {}
+export class MaterialModule { }

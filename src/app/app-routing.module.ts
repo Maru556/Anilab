@@ -10,6 +10,7 @@ import { AnimeDetailsComponent } from "./shared/anime-details/anime-details.comp
 import { AuthGuard } from "./authentication/services/auth.guard";
 import { VeriAuthGuard } from "./authentication/services/veri-auth.guard";
 import { EmailVerificationComponent } from "./authentication/email-verification/email-verification.component";
+import { SearchComponent } from './pages/search/search.component';
 
 //Basic Routing
 const appRoutes: Routes = [
@@ -24,11 +25,12 @@ const appRoutes: Routes = [
     path: "verify-email-address",
     component: EmailVerificationComponent,
     canActivate: [VeriAuthGuard]
-  }
+  },
+  { path: "search/:search", component: SearchComponent }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(appRoutes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

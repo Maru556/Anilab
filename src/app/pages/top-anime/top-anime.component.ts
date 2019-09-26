@@ -1,14 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import {
-  AnimeDetail,
   TopUpcoming,
   TopAiring,
-  TopTV,
-  TopMovies
+  TopTv,
+  TopMovies,
 } from 'src/app/api.model';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { MatTabChangeEvent } from '@angular/material';
+
 
 @Component({
   selector: 'app-top-anime',
@@ -18,11 +17,12 @@ import { MatTabChangeEvent } from '@angular/material';
 export class TopAnimeComponent implements OnInit {
   apiUrl: string = 'https://api.jikan.moe/v3';
 
+
   dataUp: TopUpcoming[];
   dataAir: TopAiring[];
-  dataTv: TopTV[];
+  dataTv: TopTv[];
   dataMov: TopMovies[];
-  constructor(private router: Router, private http: HttpClient) {}
+  constructor(private router: Router, private http: HttpClient) { }
 
   getTopUpcoming() {
     return this.http
@@ -50,7 +50,7 @@ export class TopAnimeComponent implements OnInit {
   }
 
   getTopTv() {
-    return this.http.get<TopTV[]>(`${this.apiUrl}/top/anime/1/tv`).subscribe(
+    return this.http.get<TopTv[]>(`${this.apiUrl}/top/anime/1/tv`).subscribe(
       dataTv => {
         this.dataTv = dataTv;
         console.log(dataTv);
@@ -75,22 +75,11 @@ export class TopAnimeComponent implements OnInit {
   toDetailPage(data) {
     this.router.navigate(['/details', data.mal_id]);
   }
-  tabChange(tab) {
-    if (tab === 0) {
-      this.getTopUpcoming();
-    }
-    if (tab === 1) {
-      this.getTopAiring();
-    }
-    if (tab === 2) {
-      this.getTopTv();
-    }
-    if (tab === 3) {
-      this.getTopMovie();
-    }
-  }
 
   ngOnInit() {
     this.getTopUpcoming();
+    this.getTopMovie();
+    this.getTopTv();
+    this.getTopAiring();
   }
 }

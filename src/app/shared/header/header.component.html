@@ -1,11 +1,35 @@
 <mat-toolbar class="mat-elevation-z3">
-  <a routerLink="/" routerLinkActive="active"><img src="../../../assets/images/ani_logo.png" alt="anilab logo"
-      class="logo" /></a>
+  <a routerLink="/" routerLinkActive="active"
+    ><img
+      src="../../../assets/images/ani_logo.png"
+      alt="anilab logo"
+      class="logo"
+  /></a>
   <a routerLink="/top-anime" routerLinkActive="active">Top Anime</a>
   <a routerLink="/seasonal-anime" routerLinkActive="active">Seasonal Anime</a>
   <a routerLink="/schedule" routerLinkActive="active">Schedule</a>
 
   <span class="space"></span>
-
-  <a routerLink="/login" routerLinkActive="active">Login</a>
+  <div class="search">
+    <mat-search-bar
+      #box
+      (keyup.enter)="getSearchPara(box.value)"
+      autocomplete="off"
+      placeholder="Search"
+    ></mat-search-bar>
+  </div>
+  <a
+    *ngIf="!authService.isLoggedIn"
+    routerLink="/login"
+    routerLinkActive="active"
+    >Login</a
+  >
+  <div *ngIf="authService.isLoggedIn">
+    <a (click)="authService.SignOut()" routerLinkActive="active">Logout</a>
+    <img
+      src="{{ user.photoURL }}"
+      routerLink="/Profile"
+      routerLinkActive="active"
+    />
+  </div>
 </mat-toolbar>

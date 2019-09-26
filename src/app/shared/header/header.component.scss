@@ -19,9 +19,15 @@ mat-toolbar {
   }
   a {
     margin: 12px;
-    font-size: $font-s;
+    font-size: 16px;
+    &:hover {
+      color: $pri-color;
+    }
   }
-  :hover {
-    color: $pri-color;
+  .search {
+    margin-right: 2em;
+  }
+  mat-search-bar {
+    font-size: 16px;
   }
 }

@@ -1,0 +1,36 @@
+@import "../../variables.scss";
+
+h1 {
+  text-align: center;
+  margin-top: 2em;
+}
+.container {
+  margin-top: 2em;
+  margin-left: 5em;
+  margin-right: 5em;
+  display: flex;
+  flex-flow: column;
+
+  .result-con {
+    display: flex;
+    flex-direction: row;
+    height: 120px;
+    border-radius: 5px;
+    width: 50%;
+    align-self: center;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5em;
+    background-color: $bg-color;
+    padding: 1em;
+    img {
+      height: 100px;
+      width: 70px;
+      object-fit: cover;
+      h2 {
+        margin: 0;
+        text-align: center;
+      }
+    }
+  }
+}

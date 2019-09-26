@@ -1,36 +1,34 @@
 <div class="main" style="padding-top: 64px">
-    <div class="container">
-        <div class="bg">
+  <div class="container">
+    <div class="bg"></div>
+  </div>
+  <div class="content">
+    <div class="profile-container" *ngIf="authService.userData as user">
+      <div class="profile mat-elevation-z4">
+        <div class="pf-img">
+          <img src="{{ user.photoURL }}" alt="" />
         </div>
-    </div>
-    <div class="content">
-        <div class="profile-container" *ngIf="authService.userData as user">
-            <div class="profile mat-elevation-z4">
-                <div class="pf-img">
-                    <img src="{{user.photoURL || ../../../../../assets/images/superthumb.jpg" alt="">
-            </div>
-            <div class="pf-info">
-                <div class="email">
-                    <p>email:</p>
-                <h1>{{user.email}}</h1>
-            </div>
-            <div class=" username">
-                    <p>username:</p>
-                    <h1>{{user.displayName || "unknown"}}</h1>
-                </div>
-                <div class="verified">
-                    <p>verified:</p>
-                    <h1>{{user.emailVerified}}</h1>
-                </div>
-            </div>
-            <button mat-icon-button>
-                <mat-icon>build</mat-icon>
-            </button>
+        <div class="pf-info">
+          <div class="email">
+            <p>email:</p>
+            <h1>{{ user.email }}</h1>
+          </div>
+          <div class=" username">
+            <p>username:</p>
+            <h1>{{ user.displayName || "unknown" }}</h1>
+          </div>
+          <div class="verified">
+            <p>verified:</p>
+            <h1>{{ user.emailVerified }}</h1>
+          </div>
         </div>
+        <button mat-icon-button>
+          <mat-icon>build</mat-icon>
+        </button>
+      </div>
     </div>
     <div class=" lists">
-        <h1> your anime list</h1>
-
+      <h1>your anime list</h1>
     </div>
-</div>
+  </div>
 </div>

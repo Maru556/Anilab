@@ -14,6 +14,11 @@ body {
   height: 100vh;
 }
 
+@font-face {
+  font-family: "BebasNeueRegular";
+  src: url("./assets/Font/BebasNeue-Regular.ttf") format("opentype");
+}
+
 ::-webkit-scrollbar {
   width: 0px;
   background: transparent; /* make scrollbar transparent */
