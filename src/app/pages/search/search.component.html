@@ -1,15 +1,17 @@
 <div class="main" style="padding-top: 64px">
   <h1>search:&nbsp; "{{ value }}"</h1>
   <div class="container">
-    <div
-      class="result-con mat-elevation-z5"
-      *ngFor="let res of searchRes.results"
-    >
-      <img src="{{ res.image_url }}" alt="..." />
-      <h2>{{ res.title }}</h2>
-      <h2>
-        {{ res.score }}
-      </h2>
-    </div>
+    <ng-container *ngIf="!searchRes">
+      <mat-progress-spinner mode="indeterminate" color="accent"></mat-progress-spinner>
+    </ng-container>
+    <ng-container *ngIf="searchRes">
+      <div class="result-con mat-elevation-z5" *ngFor="let res of searchRes.results" (click)="toDetailPage(res)">
+        <img src="{{ res.image_url }}" alt="{{res.title}}" />
+        <h2>{{ res.title }}</h2>
+        <h2>
+          {{ res.score }}
+        </h2>
+      </div>
+    </ng-container>
   </div>
 </div>

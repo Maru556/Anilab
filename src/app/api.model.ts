@@ -3,107 +3,108 @@ export interface Anime {
 }
 
 export interface AnimeDetail {
-  mal_id: number;
-  title: string;
-  rank: number;
-  score: number;
-  synopsis: string;
-  img_url: string;
-  trailer_url: string;
-  broadcast: string;
-  episodes: string;
-  duration: string;
-  title_japanese: string;
-  rating: string;
+  mal_id: null;
+  title: '';
+  rank: null;
+  score: null;
+  synopsis: '';
+  img_url: '';
+  trailer_url: '';
+  broadcast: '';
+  episodes: '';
+  duration: '';
+  title_japanese: '';
+  rating: '';
   producers: Prod[];
-  source: string;
-  status: string;
-  type: string;
+  source: '';
+  status: '';
+  type: '';
   aired: From;
   genres: Genres[];
 }
 export interface Genres {
-  name: string;
+  name: '';
 }
 export interface Prod {
-  name: string;
+  name: '';
 }
 
 export interface From {
-  string: string;
+  '': '';
 }
 export interface Pictures {
   pictures: BigPictures[];
 }
 export interface BigPictures {
-  large: string;
+  large: '';
 }
 
 export interface Characters {
   characters: Character[];
 }
 export interface Character {
-  image_url: string;
-  name: string;
+  image_url: '';
+  name: '';
   voice_actors: Va[];
 }
 export interface Va {
-  image_url: string;
-  name: string;
+  image_url: '';
+  name: '';
 }
 
 export interface Promo {
   promo: Videos[];
 }
 export interface Videos {
-  video_url: string;
+  video_url: '';
 }
 
 export interface Years {
-  id: number;
+  id: null;
 }
 
 export interface TopUpcoming {
-  rank: number;
-  title: number;
-  image_url: string;
-  score: string;
-  type: string;
-  mal_id: number;
+  rank: null;
+  title: null;
+  image_url: '';
+  score: '';
+  type: '';
+  mal_id: null;
 }
 
 export interface TopAiring {
-  rank: number;
-  title: number;
-  image_url: string;
-  score: string;
-  type: string;
-  mal_id: number;
+  rank: null;
+  title: null;
+  image_url: '';
+  score: '';
+  type: '';
+  mal_id: null;
 }
 
 export interface TopTv {
-  rank: number;
-  title: number;
-  image_url: string;
-  score: string;
-  type: string;
-  mal_id: number;
+  rank: null;
+  title: null;
+  image_url: '';
+  score: '';
+  type: '';
+  mal_id: null;
 }
 
 export interface TopMovies {
-  rank: number;
-  title: number;
-  image_url: string;
-  score: string;
-  type: string;
-  mal_id: number;
+  rank: null;
+  title: null;
+  image_url: '';
+  score: '';
+  type: '';
+  mal_id: null;
 }
 
 export interface Results {
   results: Search[];
 }
 export interface Search {
-  image_url: string;
-  title: string;
-  score: number;
+  image_url: '';
+  title: '';
+  score: null;
+  mal_id: null;
 }

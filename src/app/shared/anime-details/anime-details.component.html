@@ -1,5 +1,8 @@
 <div *ngIf="data" class="main" style="padding-top: 64px">
   <!--Anime Detail Background-->
+  <ng-container *ngIf="!img">
+    <mat-progress-spinner mode="indeterminate" color="accent"></mat-progress-spinner>
+  </ng-container>
   <div *ngIf="img" class="container" alt="">
     <div class="overlay"><img src="{{ img.pictures[0].large }}" alt="" /></div>
     <div class="row1">
@@ -55,17 +58,16 @@
 
       <mat-tab label="Trailer">
         <!-- Trailer -->
+        <ng-container *ngIf="!data.trailer_url">
+          <h1 class="trailer-msg">Sorry we've got nothing</h1>
+        </ng-container>
         <div *ngIf="data.trailer_url" class="vid">
+
           <div style="--aspect-ratio: 16/9;">
             <iframe [src]="data.trailer_url| safeResourceUrl" width="1600" height="900" frameborder="0">
             </iframe>
           </div>
         </div>
-      </mat-tab>
-
-      <mat-tab label="Reviews">
-        <!-- Reviews -->
-        <div class="example-large-box mat-elevation-z4"></div>
       </mat-tab>
 
       <mat-tab label="Staff & Characters">

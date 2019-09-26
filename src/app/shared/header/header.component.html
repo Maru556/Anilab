@@ -1,35 +1,24 @@
 <mat-toolbar class="mat-elevation-z3">
-  <a routerLink="/" routerLinkActive="active"
-    ><img
-      src="../../../assets/images/ani_logo.png"
-      alt="anilab logo"
-      class="logo"
-  /></a>
+  <a routerLink="/" routerLinkActive="active"><img src="../../../assets/images/ani_logo.png" alt="anilab logo"
+      class="logo" /></a>
   <a routerLink="/top-anime" routerLinkActive="active">Top Anime</a>
   <a routerLink="/seasonal-anime" routerLinkActive="active">Seasonal Anime</a>
   <a routerLink="/schedule" routerLinkActive="active">Schedule</a>
 
   <span class="space"></span>
   <div class="search">
-    <mat-search-bar
-      #box
-      (keyup.enter)="getSearchPara(box.value)"
-      autocomplete="off"
-      placeholder="Search"
-    ></mat-search-bar>
+    <mat-search-bar #box (keyup.enter)="getSearchPara(box.value)" autocomplete="off" placeholder="Search">
+    </mat-search-bar>
   </div>
-  <a
-    *ngIf="!authService.isLoggedIn"
-    routerLink="/login"
-    routerLinkActive="active"
-    >Login</a
-  >
-  <div *ngIf="authService.isLoggedIn">
-    <a (click)="authService.SignOut()" routerLinkActive="active">Logout</a>
-    <img
-      src="{{ user.photoURL }}"
-      routerLink="/Profile"
-      routerLinkActive="active"
-    />
-  </div>
+  <a *ngIf="!authService.isLoggedIn" routerLink="/login" routerLinkActive="active">Login</a>
+  <ng-container *ngIf="authService.userData as user">
+    <div class="user_con" *ngIf="authService.isLoggedIn">
+      <div class="user" routerLink="/profile" routerLinkActive="active">
+        <img src="{{user.photoURL || '../../../../../assets/images/user.png'}}" />
+        <h1>{{user.displayName}}</h1>
+      </div>
+      <a (click)="authService.SignOut()" routerLinkActive="active">Logout</a>
+
+    </div>
+  </ng-container>
 </mat-toolbar>

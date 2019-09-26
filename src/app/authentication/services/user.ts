@@ -8,4 +8,5 @@ export interface User {
 
 export interface UpdateUser {
   photoURL: string;
+  displayName: string;
 }

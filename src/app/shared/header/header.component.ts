@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/authentication/services/auth.service';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { User } from 'src/app/authentication/services/user';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -10,12 +9,19 @@ import { User } from 'src/app/authentication/services/user';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  user: User;
-  constructor(private authService: AuthService, private afAuth: AngularFireAuth) { }
+  constructor(
+    public authService: AuthService,
+    public afAuth: AngularFireAuth,
+    public router: Router
+  ) {
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+  }
+  value = '';
 
-
-  ngOnInit() {
-
+  getSearchPara(value: string) {
+    this.value = value;
+    this.router.navigate(['/search', value]);
   }
 
+  ngOnInit() {}
 }

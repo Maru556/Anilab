@@ -1,7 +1,7 @@
 //imports
-@import "~@angular/material/prebuilt-themes/pink-bluegrey.css";
-@import "~@angular/material/theming";
-@import "~material-icons/iconfont/material-icons.css";
+@import '~@angular/material/prebuilt-themes/pink-bluegrey.css';
+@import '~@angular/material/theming';
+@import '~material-icons/iconfont/material-icons.css';
 
 //reset
 html,
@@ -15,8 +15,8 @@ body {
 }
 
 @font-face {
-  font-family: "BebasNeueRegular";
-  src: url("./assets/Font/BebasNeue-Regular.ttf") format("opentype");
+  font-family: 'BebasNeueRegular';
+  src: url('./assets/Font/BebasNeue-Regular.ttf') format('opentype');
 }
 
 ::-webkit-scrollbar {
@@ -58,7 +58,7 @@ img {
 //global material design customization
 //mat-tab
 .mat-tab-label {
-  font-family: "BebasNeueRegular", sans-serif;
+  font-family: 'BebasNeueRegular', sans-serif;
 }
 
 .mat-tab-header {
@@ -71,7 +71,7 @@ img {
 }
 //mat-icon
 mat-icon {
-  font-family: "Material Icons" !important;
+  font-family: 'Material Icons' !important;
 }
 //mat-form
 .mat-form-field.mat-focused.mat-primary .mat-select-arrow {
@@ -84,11 +84,11 @@ mat-icon {
 
 input.mat-input-element {
   color: white;
-  font-family: "BebasNeueRegular", sans-serif;
+  font-family: 'BebasNeueRegular', sans-serif;
 }
 .mat-form-field.mat-focused .mat-form-field-label {
   color: #c3073f;
-  font-family: "BebasNeueRegular", sans-serif;
+  font-family: 'BebasNeueRegular', sans-serif;
 }
 //mat-chip
 .mat-chip.mat-standard-chip {
@@ -112,13 +112,15 @@ input.mat-input-element {
 .mat-dialog-container {
   background-color: #1a1a1a;
   h1 {
-    font-family: "BebasNeueRegular", sans-serif;
+    font-family: 'BebasNeueRegular', sans-serif;
+    letter-spacing: 1px;
   }
   mat-form-field {
     width: 100%;
-    font-family: "BebasNeueRegular", sans-serif;
+    font-family: 'BebasNeueRegular', sans-serif;
     input {
       width: 100%;
+      letter-spacing: 1px;
     }
   }
   .btn {
@@ -126,7 +128,17 @@ input.mat-input-element {
     flex-direction: row;
     justify-content: center;
     button {
-      font-family: "BebasNeueRegular", sans-serif;
+      font-family: 'BebasNeueRegular', sans-serif;
+      letter-spacing: 1px;
     }
   }
+}
+
+div:focus {
+  outline: 0;
+}
+mat-progress-spinner {
+  margin: 0 auto;
+  position: relative;
+  top: 10px;
 }

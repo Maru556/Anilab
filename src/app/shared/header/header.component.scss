@@ -1,4 +1,4 @@
-@import "../../variables.scss";
+@import '../../variables.scss';
 
 mat-toolbar {
   font-family: $font;
@@ -29,5 +29,25 @@ mat-toolbar {
   }
   mat-search-bar {
     font-size: 16px;
+  }
+  .user_con {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    .user {
+      display: flex;
+      margin: 12px;
+      cursor: pointer;
+      img {
+        height: 32px;
+        width: 32px;
+        border-radius: 50%;
+        margin-right: 0.5em;
+      }
+      h1 {
+        font-family: $font;
+        font-size: 16px;
+      }
+    }
   }
 }

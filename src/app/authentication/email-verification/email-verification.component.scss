@@ -1,0 +1,28 @@
+@import '../../variables.scss';
+
+div {
+  display: flex;
+  justify-content: center;
+  mat-card {
+    padding: 2em;
+    margin-top: 50%;
+    transform: translateY(-100%);
+    width: 500px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .msg {
+      align-self: center;
+      margin-top: 2em;
+      text-align: center;
+      h1 {
+        font-size: 16px;
+      }
+    }
+    button {
+      margin-top: 2em;
+    }
+  }
+}

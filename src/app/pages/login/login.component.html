@@ -19,18 +19,19 @@
           <input autocomplete="off" matInput type="password" [type]="toggle1.type" class="formControl"
             placeholder="Password" #userPassword required>
         </mat-form-field>
-
         <button mat-flat-button value="Log in" (click)="authService.SignIn(userEmail.value, userPassword.value)">Login
         </button>
         <h1 class="mat-h3 fpw" (click)="openDialog()">Forgot Your Password?</h1>
       </div>
     </mat-tab>
+
     <mat-tab label="Register">
       <div class="register">
         <h1 class="mat-h2">Welcome To Anilab!</h1>
         <mat-form-field>
           <input autocomplete="off" matInput type="email" [formControl]="emailFormControl" class="formControl"
             placeholder="Email" #userRegEmail required>
+
           <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
             Please enter a valid email address
           </mat-error>
@@ -43,6 +44,7 @@
           <mat-pass-toggle-visibility #toggle2 matSuffix></mat-pass-toggle-visibility>
           <input autocomplete="off" matInput type="password" [type]="toggle2.type" class="formControl"
             placeholder="Password" #userRegPassword required>
+          <mat-hint>min 6 Characters</mat-hint>
         </mat-form-field>
 
         <button mat-flat-button value="Register"

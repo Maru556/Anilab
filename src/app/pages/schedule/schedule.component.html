@@ -1,28 +1,79 @@
 <div class="main" style="padding-top: 64px">
+
   <h1>Monday</h1>
   <mat-divider></mat-divider>
-  <div class="container">
-    <div class="tile-container">
-      <div class="mat-elevation-z7">
-        <img src="../../../assets/images/fmacover.jpg" alt="" />
-        <h1 class="mat-h3">Anime Name</h1>
+  <div class="container" *ngIf="weekly">
+    <ng-container *ngFor="let mon of weekly.monday">
+      <div class="mat-elevation-z5 tile-container" *ngIf="mon.kids === false" (click)="toDetailPage(mon)">
+        <img src="{{mon.image_url}}" alt="" />
+        <h1 class="mat-h3">{{mon.title}}</h1>
       </div>
-      <div class="mat-elevation-z7">
-        <img
-          class="mat-elevation-z7"
-          src="../../../assets/images/fmacover.jpg"
-          alt=""
-        />
-        <h1 class="mat-h3"></h1>
+    </ng-container>
+  </div>
+
+  <h1>Tuesday</h1>
+  <mat-divider></mat-divider>
+  <div class="container" *ngIf="weekly">
+    <ng-container *ngFor="let tue of weekly.tuesday">
+      <div class="mat-elevation-z5 tile-container" *ngIf="tue.kids === false" (click)="toDetailPage(tue)">
+        <img src="{{tue.image_url}}" alt="" />
+        <h1 class="mat-h3">{{tue.title}}</h1>
       </div>
-      <div class="mat-elevation-z7">
-        <img
-          class="mat-elevation-z7"
-          src="../../../assets/images/fmacover.jpg"
-          alt=""
-        />
-        <h1 class="mat-h3">Anime Name</h1>
+    </ng-container>
+  </div>
+
+  <h1>Wednesday</h1>
+  <mat-divider></mat-divider>
+  <div class="container" *ngIf="weekly">
+    <ng-container *ngFor="let wed of weekly.wednesday">
+      <div class="mat-elevation-z5 tile-container" *ngIf="wed.kids === false" (click)="toDetailPage(wed)">
+        <img src="{{wed.image_url}}" alt="" />
+        <h1 class="mat-h3">{{wed.title}}</h1>
       </div>
-    </div>
+    </ng-container>
+  </div>
+
+  <h1>Thursday</h1>
+  <mat-divider></mat-divider>
+  <div class="container" *ngIf="weekly">
+    <ng-container *ngFor="let thu of weekly.thursday">
+      <div class="mat-elevation-z5 tile-container" *ngIf="thu.kids === false" (click)="toDetailPage(thu)">
+        <img src="{{thu.image_url}}" alt="" />
+        <h1 class="mat-h3">{{thu.title}}</h1>
+      </div>
+    </ng-container>
+  </div>
+
+  <h1>Friday</h1>
+  <mat-divider></mat-divider>
+  <div class="container" *ngIf="weekly">
+    <ng-container *ngFor="let fri of weekly.friday">
+      <div class="mat-elevation-z5 tile-container" *ngIf="fri.kids === false" (click)="toDetailPage(fri)">
+        <img src="{{fri.image_url}}" alt="" />
+        <h1 class="mat-h3">{{fri.title}}</h1>
+      </div>
+    </ng-container>
+  </div>
+
+  <h1>Saturday</h1>
+  <mat-divider></mat-divider>
+  <div class="container" *ngIf="weekly">
+    <ng-container *ngFor="let sat of weekly.saturday">
+      <div class="mat-elevation-z5 tile-container" *ngIf="sat.kids === false" (click)="toDetailPage(sat)">
+        <img src="{{sat.image_url}}" alt="" />
+        <h1 class="mat-h3">{{sat.title}}</h1>
+      </div>
+    </ng-container>
+  </div>
+
+  <h1>Sunday</h1>
+  <mat-divider></mat-divider>
+  <div class="container" *ngIf="weekly">
+    <ng-container *ngFor="let sun of weekly.sunday">
+      <div class="mat-elevation-z5 tile-container" *ngIf="sun.kids === false" (click)="toDetailPage(sun)">
+        <img src="{{sun.image_url}}" alt="" />
+        <h1 class="mat-h3">{{sun.title}}</h1>
+      </div>
+    </ng-container>
   </div>
 </div>

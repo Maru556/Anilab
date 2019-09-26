@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from "@angular/router";
+import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Results } from 'src/app/api.model';
 
@@ -10,8 +10,11 @@ import { Results } from 'src/app/api.model';
 })
 export class SearchComponent implements OnInit {
   apiSearchUrl: string = 'https://api.jikan.moe/v3';
-  constructor(private route: ActivatedRoute, private router: Router, private http: HttpClient) { }
-
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private http: HttpClient
+  ) {}
 
   value = '';
   searchRes: Results[];
@@ -26,17 +29,15 @@ export class SearchComponent implements OnInit {
           console.log(searchRes);
         },
         err => console.error(err),
-        () => console.log('done loading details')
+        () => console.log('done loading search request')
       );
   }
+  toDetailPage(data) {
+    this.router.navigate(['/details', data.mal_id]);
+  }
   ngOnInit() {
-    let search = this.route.snapshot.paramMap.get("search");
-    this.value = search
+    let search = this.route.snapshot.paramMap.get('search');
+    this.value = search;
     this.getSearchResult(this.value);
   }
-  ngDoChanges() {
-
-
-  }
-
 }
