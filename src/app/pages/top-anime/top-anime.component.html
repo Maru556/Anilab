@@ -20,7 +20,7 @@
         <!-- Anime Card -->
         <ng-container *ngIf="dataUp">
           <div class="card-container" *ngFor="let up of dataUp.top">
-            <mat-card (click)="toDetailPage(up)" class="mat-elevation-z8">
+            <mat-card (click)="toDetailPage(up)" class="mat-elevation-z5">
               <h1 class="mat-display-3">{{ up.rank }}</h1>
               <div class="img-con">
                 <img src="{{ up.image_url }}" alt="" />
@@ -29,7 +29,8 @@
                 <h1>{{ up.title }}</h1>
                 <h1 class="mat-h3">{{ up.type }}</h1>
               </div>
-              <h1>{{ up.score }}<mat-icon>star</mat-icon></h1>
+              <h1>{{ up.score }}<mat-icon>star</mat-icon>
+              </h1>
 
               <button>+ Add</button>
             </mat-card>
@@ -60,7 +61,8 @@
                 <h1>{{ air.title }}</h1>
                 <h1 class="mat-h3">{{ air.type }}</h1>
               </div>
-              <h1>{{ air.score }}<mat-icon>star</mat-icon></h1>
+              <h1>{{ air.score }}<mat-icon>star</mat-icon>
+              </h1>
 
               <button>+ Add</button>
             </mat-card>
@@ -91,7 +93,8 @@
                 <h1>{{ tv.title }}</h1>
                 <h1 class="mat-h3">{{ tv.type }}</h1>
               </div>
-              <h1>{{ tv.score }}<mat-icon>star</mat-icon></h1>
+              <h1>{{ tv.score }}<mat-icon>star</mat-icon>
+              </h1>
 
               <button>+ Add</button>
             </mat-card>
@@ -122,7 +125,8 @@
                 <h1>{{ mov.title }}</h1>
                 <h1 class="mat-h3">{{ mov.type }}</h1>
               </div>
-              <h1>{{ mov.score }}<mat-icon>star</mat-icon></h1>
+              <h1>{{ mov.score }}<mat-icon>star</mat-icon>
+              </h1>
 
               <button>+ Add</button>
             </mat-card>
