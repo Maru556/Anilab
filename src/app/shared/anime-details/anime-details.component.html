@@ -6,7 +6,7 @@
   <div *ngIf="img" class="container" alt="">
     <div class="overlay"><img src="{{ img.pictures[0].large }}" alt="" /></div>
     <div class="row1">
-      <h1 class="anime-name">
+      <h1 class="anime-name" #title>
         {{ data.title }}
       </h1>
     </div>
@@ -14,7 +14,7 @@
       <h1 class="anime-rank">Rank: {{ data.rank || "X" }}</h1>
       <h1 class="anime-rating">{{ data.score ||"X" }}<mat-icon>star</mat-icon>
       </h1>
-      <button>+ Add</button>
+      <button (click)="bmService.GetBookmarkData(data.mal_id,data.title,data.image_url)">+ Add</button>
     </div>
   </div>
 

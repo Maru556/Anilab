@@ -10,3 +10,9 @@ export interface UpdateUser {
   photoURL: string;
   displayName: string;
 }
+
+export interface Bookmarks {
+  mal_id: null;
+  title: '';
+  image_url: '';
+}

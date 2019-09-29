@@ -15,15 +15,6 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AuthService } from './authentication/services/auth.service';
 
-const config = {
-  apiKey: 'AIzaSyCBmBF7WemiaGz9FBhLcIzBauciZbYx2JE',
-  authDomain: 'anilab-6be14.firebaseapp.com',
-  databaseURL: 'https://anilab-6be14.firebaseio.com',
-  projectId: 'anilab-6be14',
-  storageBucket: 'anilab-6be14.appspot.com',
-  messagingSenderId: '257358841663',
-  appId: '1:257358841663:web:8021c3b0b50462df60f58a'
-};
 //Components
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -32,12 +23,11 @@ import { SeasonalComponent } from './pages/seasonal/seasonal.component';
 import { ScheduleComponent } from './pages/schedule/schedule.component';
 import {
   LoginComponent,
-  ForgotPasswordComponent
+  ForgotPasswordComponent // Dialog Pop-up
 } from './pages/login/login.component';
-
 import {
   ProfileComponent,
-  UpdateProfileComponent
+  UpdateProfileComponent // Dialog Pop-up
 } from './pages/profile/profile.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
@@ -46,6 +36,8 @@ import { AnimeItemComponent } from './pages/home/anime-item/anime-item.component
 import { SafeResourceUrlPipe } from './safe-resource-url.pipe';
 import { EmailVerificationComponent } from './authentication/email-verification/email-verification.component';
 import { SearchComponent } from './pages/search/search.component';
+import { environment } from 'src/environments/environment';
+import { BookmarkService } from './shared/bookmark.service';
 
 @NgModule({
   declarations: [
@@ -75,14 +67,14 @@ import { SearchComponent } from './pages/search/search.component';
     FormsModule,
     ReactiveFormsModule,
     NgArrayPipesModule,
-    AngularFireModule.initializeApp(config),
+    AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFirestoreModule,
     BrowserAnimationsModule,
     NotyfModule
   ],
   entryComponents: [ForgotPasswordComponent, UpdateProfileComponent],
-  providers: [AuthService],
+  providers: [AuthService, BookmarkService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

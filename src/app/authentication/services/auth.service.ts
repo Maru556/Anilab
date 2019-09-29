@@ -1,19 +1,19 @@
-import { Injectable, NgZone } from "@angular/core";
-import { User, UpdateUser } from "../services/user";
-import { AngularFireAuth } from "@angular/fire/auth";
+import { Injectable, NgZone } from '@angular/core';
+import { User } from '../services/user';
+import { AngularFireAuth } from '@angular/fire/auth';
 import {
   AngularFirestore,
   AngularFirestoreDocument
-} from "@angular/fire/firestore";
-import { Router } from "@angular/router";
-import { NotyfService } from "ng-notyf";
+} from '@angular/fire/firestore';
+import { Router } from '@angular/router';
+import { NotyfService } from 'ng-notyf';
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 export class AuthService {
   userData: any; // Save logged in user data
-  updateUserData: any;
+
   constructor(
     public afs: AngularFirestore, // Inject Firestore service
     public afAuth: AngularFireAuth, // Inject Firebase auth service
@@ -26,11 +26,13 @@ export class AuthService {
     this.afAuth.authState.subscribe(user => {
       if (user) {
         this.userData = user;
-        localStorage.setItem("user", JSON.stringify(this.userData));
-        JSON.parse(localStorage.getItem("user"));
+        localStorage.setItem('user', JSON.stringify(this.userData));
+        JSON.parse(localStorage.getItem('user'));
       } else {
-        localStorage.setItem("user", null);
-        JSON.parse(localStorage.getItem("user"));
+        localStorage.setItem('user', null);
+        JSON.parse(localStorage.getItem('user'));
+        localStorage.setItem('bookmarks', null);
+        JSON.parse(localStorage.getItem('bookmarks'));
       }
     });
   }
@@ -45,10 +47,10 @@ export class AuthService {
       .signInWithEmailAndPassword(email, password)
       .then(result => {
         this.ngZone.run(() => {
-          this.router.navigate(["/profile"]);
+          this.router.navigate(['/profile']);
         });
         this.SetUserData(result.user);
-        this.notyf.success("Welcome!");
+        this.notyf.success('Welcome!');
       })
       .catch(error => {
         this.notyf.error(error.message);
@@ -76,7 +78,7 @@ export class AuthService {
   // Send email verfificaiton when new user sign up
   SendVerificationMail() {
     return this.afAuth.auth.currentUser.sendEmailVerification().then(() => {
-      this.router.navigate(["verify-email-address"]);
+      this.router.navigate(['verify-email-address']);
     });
   }
 
@@ -85,7 +87,7 @@ export class AuthService {
     return this.afAuth.auth
       .sendPasswordResetEmail(passwordResetEmail)
       .then(() => {
-        window.alert("Password reset email sent, check your inbox.");
+        window.alert('Password reset email sent, check your inbox.');
       })
       .catch(error => {
         window.alert(error);
@@ -94,7 +96,7 @@ export class AuthService {
 
   // Returns true when user is looged in and email is verified
   get isLoggedIn(): boolean {
-    const user = JSON.parse(localStorage.getItem("user"));
+    const user = JSON.parse(localStorage.getItem('user'));
     return user !== null && user.emailVerified !== false ? true : false;
   }
 
@@ -120,8 +122,8 @@ export class AuthService {
   // Sign out
   SignOut() {
     return this.afAuth.auth.signOut().then(() => {
-      localStorage.removeItem("user");
-      this.router.navigate(["/login"]);
+      localStorage.removeItem('user');
+      this.router.navigate(['/login']);
     });
   }
 }

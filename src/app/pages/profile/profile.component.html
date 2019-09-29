@@ -23,8 +23,14 @@
         </button>
       </div>
     </div>
-    <div class=" lists">
+    <div class=" lists" *ngIf="bmService.bmData as bookmarks">
       <h1>your anime list</h1>
+      <div *ngFor="let bm of bookmarks" class="card-con">
+        <mat-card (click)="toDetailPage(bm)" class="mat-elevation-z5">
+          <h1>{{bm.title}}</h1>
+          <img src="{{bm.image_url}}" alt="">
+        </mat-card>
+      </div>
     </div>
   </div>
 </div>

@@ -1,19 +1,20 @@
-import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
-import { HttpClient, HttpParams } from "@angular/common/http";
-import { Observable } from "rxjs";
-import { AnimeDetail, Pictures, Characters } from "../../api.model";
-import { DomSanitizer } from "@angular/platform-browser";
-import { SafeResourceUrlPipe } from "../../safe-resource-url.pipe";
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { AnimeDetail, Pictures, Characters } from '../../api.model';
+import { DomSanitizer } from '@angular/platform-browser';
+import { BookmarkService } from '../bookmark.service';
+import { AuthService } from 'src/app/authentication/services/auth.service';
 
 @Component({
-  selector: "app-anime-details",
-  templateUrl: "./anime-details.component.html",
-  styleUrls: ["./anime-details.component.scss"]
+  selector: 'app-anime-details',
+  templateUrl: './anime-details.component.html',
+  styleUrls: ['./anime-details.component.scss']
 })
 export class AnimeDetailsComponent implements OnInit {
   //api url to connect to MAL API
-  apiUrl: string = "https://api.jikan.moe/v3";
+  apiUrl: string = 'https://api.jikan.moe/v3';
   public animeId;
 
   //Functions
@@ -30,7 +31,7 @@ export class AnimeDetailsComponent implements OnInit {
         console.log(data);
       },
       err => console.error(err),
-      () => console.log("done loading details")
+      () => console.log('done loading details')
     );
   }
   data: AnimeDetail[];
@@ -48,7 +49,7 @@ export class AnimeDetailsComponent implements OnInit {
         console.log(img);
       },
       err => console.error(err),
-      () => console.log("done loading pictures")
+      () => console.log('done loading pictures')
     );
   }
   img: Pictures[];
@@ -66,7 +67,7 @@ export class AnimeDetailsComponent implements OnInit {
         console.log(info);
       },
       err => console.log(err),
-      () => console.log("done loading characters")
+      () => console.log('done loading characters')
     );
   }
   info: Characters[];
@@ -74,12 +75,14 @@ export class AnimeDetailsComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private http: HttpClient,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    public bmService: BookmarkService,
+    public authService: AuthService
   ) {}
 
   ngOnInit() {
     //getting the id from routing
-    let id = parseInt(this.route.snapshot.paramMap.get("id"));
+    let id = parseInt(this.route.snapshot.paramMap.get('id'));
     this.animeId = id;
     //initiatig funvtions
     this.getAnimeDetails();

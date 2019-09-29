@@ -1,8 +1,12 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { AuthService } from '../../authentication/services/auth.service';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { User, UpdateUser } from '../../authentication/services/user';
+import {
+  User,
+  UpdateUser,
+  Bookmarks
+} from '../../authentication/services/user';
 import {
   MatDialog,
   MatDialogRef,
@@ -13,6 +17,7 @@ import {
   AngularFirestore,
   AngularFirestoreDocument
 } from '@angular/fire/firestore';
+import { BookmarkService } from 'src/app/shared/bookmark.service';
 
 export interface DialogData {}
 @Component({
@@ -22,13 +27,19 @@ export interface DialogData {}
 })
 export class ProfileComponent {
   user: User;
+  bookmarks: Bookmarks;
 
   constructor(
     public authService: AuthService,
     public router: Router,
     public afAuth: AngularFireAuth,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    public bmService: BookmarkService,
+    public afs: AngularFirestore
   ) {}
+
+  ngOnInit() {}
+
   openDialog(): void {
     const dialogRef = this.dialog.open(UpdateProfileComponent, {
       width: '350px',
@@ -44,7 +55,8 @@ export class ProfileComponent {
 export class UpdateProfileComponent {
   constructor(
     public dialogRef: MatDialogRef<UpdateProfileComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData,
+    @Inject(MAT_DIALOG_DATA)
+    public data: DialogData,
     public authService: AuthService,
     public afAuth: AngularFireAuth,
     public notyf: NotyfService,
