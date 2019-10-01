@@ -35,10 +35,12 @@
     height: 100%;
     width: 100%;
 
-    img {
+    .img {
+      background: url("../../../assets/images/kime.jpg") no-repeat center center
+        fixed;
+      background-size: cover;
       height: 100%;
       width: 100%;
-      object-fit: cover;
       mask-image: linear-gradient(
         to bottom,
         rgba(0, 0, 0, 1),
