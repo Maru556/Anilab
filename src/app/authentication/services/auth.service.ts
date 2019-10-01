@@ -21,6 +21,8 @@ export class AuthService {
     public ngZone: NgZone, // NgZone service to remove outside scope warning
     public notyf: NotyfService
   ) {
+    console.log(this.isLoggedIn);
+
     /* Saving user data in localstorage when 
     logged in and setting up null when logged out */
     this.afAuth.authState.subscribe(user => {
@@ -87,10 +89,10 @@ export class AuthService {
     return this.afAuth.auth
       .sendPasswordResetEmail(passwordResetEmail)
       .then(() => {
-        window.alert('Password reset email sent, check your inbox.');
+        this.notyf.success('The email has been sent check your inbox')
       })
       .catch(error => {
-        window.alert(error);
+        this.notyf.error(error.message)
       });
   }
 

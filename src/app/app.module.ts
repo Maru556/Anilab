@@ -32,7 +32,6 @@ import {
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { AnimeDetailsComponent } from './shared/anime-details/anime-details.component';
-import { AnimeItemComponent } from './pages/home/anime-item/anime-item.component';
 import { SafeResourceUrlPipe } from './safe-resource-url.pipe';
 import { EmailVerificationComponent } from './authentication/email-verification/email-verification.component';
 import { SearchComponent } from './pages/search/search.component';
@@ -51,7 +50,6 @@ import { BookmarkService } from './shared/bookmark.service';
     HeaderComponent,
     FooterComponent,
     AnimeDetailsComponent,
-    AnimeItemComponent,
     SafeResourceUrlPipe,
     EmailVerificationComponent,
     ForgotPasswordComponent,
@@ -77,4 +75,4 @@ import { BookmarkService } from './shared/bookmark.service';
   providers: [AuthService, BookmarkService],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

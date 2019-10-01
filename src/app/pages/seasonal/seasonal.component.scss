@@ -26,8 +26,6 @@
     .season {
       text-align: start;
       margin-left: 2em;
-    }
-    h1 {
       margin-bottom: 0px;
     }
   }
@@ -99,18 +97,88 @@
       justify-content: space-evenly;
       img {
         grid-column: 1;
-        height: inherit;
-        object-fit: contain;
+        height: 100%;
+        object-fit: cover;
         width: 100%;
+        margin-right: 8px;
       }
       p {
         grid-column: 2;
         font-family: "Roboto", sans-serif;
-        object-fit: fill;
+        margin-left: 8px;
         overflow-x: scroll;
         margin-bottom: 0px;
         line-height: normal;
       }
     }
+  }
+}
+@media (max-width: 510px) {
+  .nav {
+    height: 300px;
+    flex-flow: column nowrap;
+    justify-content: space-evenly;
+    width: 100%;
+    h1 {
+      text-align: center;
+      margin-left: 0;
+      margin-top: 15px;
+    }
+    .sub {
+      justify-content: center;
+    }
+    .select {
+      flex-flow: row wrap;
+      width: 100%;
+      justify-content: center !important;
+    }
+  }
+  .cards {
+    grid-template-columns: 350px !important;
+    grid-auto-rows: 500px;
+    .name {
+      flex-flow: wrap;
+    }
+    .chips {
+      flex-flow: wrap;
+    }
+  }
+}
+@media (max-width: 1100px) {
+  .nav {
+    height: 300px;
+    flex-flow: column nowrap;
+    justify-content: space-evenly;
+    width: 100%;
+    h1 {
+      text-align: center;
+      margin-left: 0;
+      margin-top: 15px;
+    }
+    .sub {
+      justify-content: center;
+    }
+    .select {
+      flex-flow: row wrap;
+      width: 100%;
+      justify-content: center !important;
+    }
+  }
+  .cards {
+    grid-template-columns: repeat(1, 500px);
+  }
+}
+@media (min-width: 1100px) {
+  .cards {
+    grid-template-columns: repeat(2, 500px);
+  }
+}
+
+@media (min-width: 1600px) {
+  .season {
+    margin-left: 2em;
+  }
+  .cards {
+    grid-template-columns: repeat(3, 500px);
   }
 }

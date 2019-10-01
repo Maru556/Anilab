@@ -1,24 +1,81 @@
 <mat-toolbar class="mat-elevation-z3">
-  <a routerLink="/" routerLinkActive="active"><img src="../../../assets/images/ani_logo.png" alt="anilab logo"
-      class="logo" /></a>
-  <a routerLink="/top-anime" routerLinkActive="active">Top Anime</a>
-  <a routerLink="/seasonal-anime" routerLinkActive="active">Seasonal Anime</a>
-  <a routerLink="/schedule" routerLinkActive="active">Schedule</a>
-
+  <div class="mobile-menu">
+    <button
+      mat-icon-button
+      [matMenuTriggerFor]="menu"
+      aria-label="icon-button with a menu"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item routerLink="/" routerLinkActive="active">
+        <mat-icon>house</mat-icon>
+        <span>Home</span>
+      </button>
+      <button mat-menu-item routerLink="/top-anime" routerLinkActive="active">
+        <mat-icon>trending_up</mat-icon>
+        <span>Top Anime </span>
+      </button>
+      <button
+        mat-menu-item
+        routerLink="/seasonal-anime"
+        routerLinkActive="active"
+      >
+        <mat-icon>wb_sunny</mat-icon>
+        <span>Seasonal Anime</span>
+      </button>
+      <button mat-menu-item routerLink="/schedule" routerLinkActive="active">
+        <mat-icon>calendar_today</mat-icon>
+        <span>Schedule</span>
+      </button>
+      <button
+        *ngIf="authService.isLoggedIn"
+        mat-menu-item
+        routerLink="/profile"
+        routerLinkActive="active"
+      >
+        <mat-icon>account_circle</mat-icon>
+        <span>Profile</span>
+      </button>
+    </mat-menu>
+  </div>
+  <div class="links">
+    <a routerLink="/" routerLinkActive="active"
+      ><img
+        src="../../../assets/images/ani_logo.png"
+        alt="anilab logo"
+        class="logo"
+    /></a>
+    <a routerLink="/top-anime" routerLinkActive="active">Top Anime</a>
+    <a routerLink="/seasonal-anime" routerLinkActive="active">Seasonal Anime</a>
+    <a routerLink="/schedule" routerLinkActive="active">Schedule</a>
+  </div>
   <span class="space"></span>
   <div class="search">
-    <mat-search-bar #box (keyup.enter)="getSearchPara(box.value)" autocomplete="off" placeholder="Search">
+    <mat-search-bar
+      #box
+      (keyup.enter)="getSearchPara(box.value)"
+      autocomplete="off"
+      placeholder="Search"
+    >
     </mat-search-bar>
   </div>
-  <a *ngIf="!authService.isLoggedIn" routerLink="/login" routerLinkActive="active">Login</a>
+  <a
+    *ngIf="!authService.isLoggedIn"
+    routerLink="/login"
+    routerLinkActive="active"
+    >Login</a
+  >
+
   <ng-container *ngIf="authService.userData as user">
     <div class="user_con" *ngIf="authService.isLoggedIn">
       <div class="user" routerLink="/profile" routerLinkActive="active">
-        <img src="{{user.photoURL || '../../../../../assets/images/user.png'}}" />
-        <h1>{{user.displayName}}</h1>
+        <img
+          src="{{ user.photoURL || '../../../../../assets/images/user.png' }}"
+        />
+        <h1>{{ user.displayName }}</h1>
       </div>
       <a (click)="authService.SignOut()" routerLinkActive="active">Logout</a>
-
     </div>
   </ng-container>
 </mat-toolbar>

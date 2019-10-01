@@ -1,4 +1,4 @@
-@import '../../variables.scss';
+@import "../../variables.scss";
 
 .container {
   height: 35vh;
@@ -43,7 +43,7 @@
   align-items: flex-end;
   z-index: 1;
   button {
-    font-size: $font-l;
+    font-size: 2em;
     border-style: none;
     background: none;
     cursor: pointer;
@@ -100,22 +100,22 @@
   padding: 3em;
   width: 60%;
   margin: 0 auto;
-  [style*='--aspect-ratio'] > :first-child {
+  [style*="--aspect-ratio"] > :first-child {
     width: 100%;
   }
-  [style*='--aspect-ratio'] > img {
+  [style*="--aspect-ratio"] > img {
     height: auto;
   }
   @supports (--custom: property) {
-    [style*='--aspect-ratio'] {
+    [style*="--aspect-ratio"] {
       position: relative;
     }
-    [style*='--aspect-ratio']::before {
-      content: '';
+    [style*="--aspect-ratio"]::before {
+      content: "";
       display: block;
       padding-bottom: calc(100% / (var(--aspect-ratio)));
     }
-    [style*='--aspect-ratio'] > :first-child {
+    [style*="--aspect-ratio"] > :first-child {
       position: absolute;
       top: 0;
       left: 0;
@@ -135,7 +135,7 @@
     margin-top: 2em;
     width: 100%;
     display: grid;
-    grid-template-columns: 5fr 1fr 10px 5fr 10fr 5fr 10px 1fr 5fr;
+    grid-template-columns: 5fr 50px 10px 5fr 10fr 5fr 10px 50px 5fr;
     grid-auto-rows: 50px;
     justify-content: center;
     .char_img {
@@ -168,5 +168,53 @@
   .no_info {
     text-align: center;
     margin-top: 2em;
+  }
+}
+@media (max-width: 1100px) {
+  .anime-name {
+    font-size: 2em !important;
+  }
+  .row2 {
+    flex-flow: column;
+    margin-right: 1.5em;
+    justify-content: flex-end;
+    .anime-rank {
+      font-size: 1.5em;
+      margin-bottom: 0.5em;
+    }
+    .anime-rating {
+      font-size: 1.5em;
+      margin-bottom: 0.5em;
+    }
+    button {
+      font-size: 1.5em;
+    }
+  }
+  .info {
+    flex-flow: column;
+    .info_row {
+      width: 100%;
+      padding: 2em;
+    }
+    .synopsis {
+      width: 100%;
+      padding: 2em;
+    }
+  }
+  .vid {
+    width: 80%;
+  }
+}
+@media (max-width: 500px) {
+  .info {
+    .info_row {
+      padding: 1em;
+    }
+    .synopsis {
+      padding: 1em;
+    }
+  }
+  .vid {
+    width: 100%;
   }
 }

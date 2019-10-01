@@ -1,18 +1,32 @@
 <div class="main" style="padding-top: 64px">
   <div class="nav mat-elevation-z4">
     <h1>Seasonal Anime</h1>
+    <h2 class="season">{{ selectedSeason }} {{ selectedYear }}</h2>
     <div class="sub">
-      <h1 class="season mat-h1">{{selectedSeason}} {{selectedYear}}</h1>
       <div class="select">
         <mat-form-field>
-          <mat-select placeholder="Season" [(ngModel)]="selectedSeason" (ngModelChange)="getUserInput($event)">
-            <mat-option *ngFor="let season of seasons" [value]="season.value">{{season.season}}</mat-option>
+          <mat-select
+            placeholder="Season"
+            [(ngModel)]="selectedSeason"
+            (ngModelChange)="getUserInput($event)"
+          >
+            <mat-option *ngFor="let season of seasons" [value]="season.value">{{
+              season.season
+            }}</mat-option>
           </mat-select>
         </mat-form-field>
         <mat-form-field>
-          <mat-select placeholder="Year" [(ngModel)]="selectedYear" (ngModelChange)="getUserInput($event)">
-            <mat-option *ngFor="let year of years.availableYears | reverse" [value]="year.id">
-              {{year.id}}</mat-option>
+          <mat-select
+            placeholder="Year"
+            [(ngModel)]="selectedYear"
+            (ngModelChange)="getUserInput($event)"
+          >
+            <mat-option
+              *ngFor="let year of years.availableYears | reverse"
+              [value]="year.id"
+            >
+              {{ year.id }}</mat-option
+            >
           </mat-select>
         </mat-form-field>
       </div>
@@ -28,25 +42,26 @@
         <ng-container *ngFor="let info of data.anime">
           <ng-container *ngIf="info.r18 != true && info.type == 'TV'">
             <mat-card (click)="toDetailPage(info)" class="mat-elevation-z6">
-              <h1 class="name mat-h1">{{info.title}}</h1>
-              <h1 class="score mat-h2">{{info.score || 'X'}}<mat-icon class="mat-h2">star</mat-icon>
+              <h1 class="name mat-h1">{{ info.title }}</h1>
+              <h1 class="score mat-h2">
+                {{ info.score || "X" }}<mat-icon class="mat-h2">star</mat-icon>
               </h1>
               <div class="info">
                 <ng-container *ngFor="let prod of info.producers">
-                  <h1 class="mat-h4">{{prod.name}}</h1>
+                  <h1 class="mat-h4">{{ prod.name }}</h1>
                 </ng-container>
-                <h1 class="mat-h4">{{info.episodes || 'X'}} Eps.</h1>
-                <h1 class="mat-h4"> {{info.source}} </h1>
+                <h1 class="mat-h4">{{ info.episodes || "X" }} Eps.</h1>
+                <h1 class="mat-h4">{{ info.source }}</h1>
               </div>
               <div class="chips">
                 <ng-container *ngFor="let chip of info.genres">
-                  <div class="mat-h5 chip"> {{chip.name}} </div>
+                  <div class="mat-h5 chip">{{ chip.name }}</div>
                 </ng-container>
               </div>
               <div class="main-content">
-                <img src="{{info.image_url}}" alt="" />
+                <img src="{{ info.image_url }}" alt="" />
                 <p class="mat-h3">
-                  {{info.synopsis}}
+                  {{ info.synopsis }}
                 </p>
               </div>
             </mat-card>
@@ -64,25 +79,27 @@
           <ng-container *ngFor="let info of data.anime">
             <ng-container *ngIf="info.r18 != true && info.type == 'Movie'">
               <mat-card (click)="toDetailPage(info)" class="mat-elevation-z6">
-                <h1 class="name mat-h1">{{info.title}}</h1>
-                <h1 class="score mat-h2">{{info.score || '8.32'}}<mat-icon class="mat-h2">star</mat-icon>
+                <h1 class="name mat-h1">{{ info.title }}</h1>
+                <h1 class="score mat-h2">
+                  {{ info.score || "8.32"
+                  }}<mat-icon class="mat-h2">star</mat-icon>
                 </h1>
                 <div class="info">
                   <ng-container *ngFor="let prod of info.producers">
-                    <h1 class="mat-h4">{{prod.name}}</h1>
+                    <h1 class="mat-h4">{{ prod.name }}</h1>
                   </ng-container>
-                  <h1 class="mat-h4">{{info.episodes || 'X'}} Eps.</h1>
-                  <h1 class="mat-h4"> {{info.source}} </h1>
+                  <h1 class="mat-h4">{{ info.episodes || "X" }} Eps.</h1>
+                  <h1 class="mat-h4">{{ info.source }}</h1>
                 </div>
                 <div class="chips">
                   <ng-container *ngFor="let chip of info.genres">
-                    <div class="mat-h5 chip"> {{chip.name}} </div>
+                    <div class="mat-h5 chip">{{ chip.name }}</div>
                   </ng-container>
                 </div>
                 <div class="main-content">
-                  <img src="{{info.image_url}}" alt="" />
+                  <img src="{{ info.image_url }}" alt="" />
                   <p class="mat-h3">
-                    {{info.synopsis}}
+                    {{ info.synopsis }}
                   </p>
                 </div>
               </mat-card>
@@ -92,3 +109,4 @@
       </div>
     </div>
   </div>
+</div>

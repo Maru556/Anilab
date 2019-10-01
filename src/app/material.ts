@@ -19,6 +19,8 @@ import { MatPasswordStrengthModule } from '@angular-material-extensions/password
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { NgMatSearchBarModule } from 'ng-mat-search-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatMenuModule } from '@angular/material/menu';
+
 
 @NgModule({
   imports: [
@@ -39,7 +41,9 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatPasswordStrengthModule,
     MatSnackBarModule,
     NgMatSearchBarModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatMenuModule
+
   ],
   exports: [
     BrowserAnimationsModule,
@@ -59,10 +63,11 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatPasswordStrengthModule,
     MatSnackBarModule,
     NgMatSearchBarModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatMenuModule
   ],
   providers: [
     { provide: MAT_RIPPLE_GLOBAL_OPTIONS, useValue: { disabled: true } }
   ]
 })
-export class MaterialModule {}
+export class MaterialModule { }

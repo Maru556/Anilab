@@ -1,12 +1,13 @@
-@import '../../variables.scss';
+@import "../../variables.scss";
 
 div {
   display: flex;
   justify-content: center;
   mat-card {
     padding: 2em;
-    margin-top: 50%;
-    transform: translateY(-100%);
+    top: 50%;
+    transform: translateY(-50%);
+    position: absolute;
     width: 500px;
     height: 400px;
     display: flex;

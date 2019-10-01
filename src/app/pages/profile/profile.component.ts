@@ -19,7 +19,7 @@ import {
 } from '@angular/fire/firestore';
 import { BookmarkService } from 'src/app/shared/bookmark.service';
 
-export interface DialogData {}
+export interface DialogData { }
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -36,9 +36,9 @@ export class ProfileComponent {
     public dialog: MatDialog,
     public bmService: BookmarkService,
     public afs: AngularFirestore
-  ) {}
+  ) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   openDialog(): void {
     const dialogRef = this.dialog.open(UpdateProfileComponent, {
@@ -62,7 +62,7 @@ export class UpdateProfileComponent {
     public notyf: NotyfService,
     public router: Router,
     public afs: AngularFirestore
-  ) {}
+  ) { }
 
   user = this.afAuth.auth.currentUser;
 

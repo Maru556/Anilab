@@ -34,3 +34,14 @@ h1 {
     }
   }
 }
+@media (max-width: 1100px) {
+  .result-con {
+    width: 100% !important;
+  }
+}
+@media (max-width: 600px) {
+  .container {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}

@@ -1,7 +1,10 @@
 <div *ngIf="data" class="main" style="padding-top: 64px">
   <!--Anime Detail Background-->
   <ng-container *ngIf="!img">
-    <mat-progress-spinner mode="indeterminate" color="accent"></mat-progress-spinner>
+    <mat-progress-spinner
+      mode="indeterminate"
+      color="accent"
+    ></mat-progress-spinner>
   </ng-container>
   <div *ngIf="img" class="container" alt="">
     <div class="overlay"><img src="{{ img.pictures[0].large }}" alt="" /></div>
@@ -12,9 +15,17 @@
     </div>
     <div class="row2">
       <h1 class="anime-rank">Rank: {{ data.rank || "X" }}</h1>
-      <h1 class="anime-rating">{{ data.score ||"X" }}<mat-icon>star</mat-icon>
+      <h1 class="anime-rating">
+        {{ data.score || "X" }}<mat-icon>star</mat-icon>
       </h1>
-      <button (click)="bmService.GetBookmarkData(data.mal_id,data.title,data.image_url)">+ Add</button>
+      <button
+        *ngIf="authService.isLoggedIn"
+        (click)="
+          bmService.GetBookmarkData(data.mal_id, data.title, data.image_url)
+        "
+      >
+        + Add
+      </button>
     </div>
   </div>
 
@@ -26,7 +37,7 @@
         <div class="info">
           <div class="info_row">
             <h1 class="mat-h1">Info</h1>
-            <h1 class="mat-h2">Japanese: {{ data.title_japanese}}</h1>
+            <h1 class="mat-h2">Japanese: {{ data.title_japanese }}</h1>
             <h1 class="mat-h2">Episodes: {{ data.episodes || "Unknown" }}</h1>
             <h1 class="mat-h2">Duration: {{ data.duration || "Unknown" }}</h1>
             <h1 class="mat-h2">Rating: {{ data.rating || "Unknown" }}</h1>
@@ -34,13 +45,15 @@
             <div class="producers">
               <h1 class="mat-h2">Producers:&nbsp;</h1>
               <ng-container *ngFor="let producers of data.producers">
-                <h1 class="mat-h2">{{ producers.name || "Unknown" }}&nbsp;&nbsp;&nbsp;</h1>
+                <h1 class="mat-h2">
+                  {{ producers.name || "Unknown" }}&nbsp;&nbsp;&nbsp;
+                </h1>
               </ng-container>
             </div>
             <div class="genres">
               <h1 class="mat-h2">Genres:&nbsp;</h1>
               <ng-container *ngFor="let gen of data.genres">
-                <h1 class="mat-h2">{{gen.name}}&nbsp;&nbsp;&nbsp;</h1>
+                <h1 class="mat-h2">{{ gen.name }}&nbsp;&nbsp;&nbsp;</h1>
               </ng-container>
             </div>
             <h1 class="mat-h2">Status: {{ data.status }}</h1>
@@ -62,9 +75,13 @@
           <h1 class="trailer-msg">Sorry we've got nothing</h1>
         </ng-container>
         <div *ngIf="data.trailer_url" class="vid">
-
           <div style="--aspect-ratio: 16/9;">
-            <iframe [src]="data.trailer_url| safeResourceUrl" width="1600" height="900" frameborder="0">
+            <iframe
+              [src]="data.trailer_url | safeResourceUrl"
+              width="1600"
+              height="900"
+              frameborder="0"
+            >
             </iframe>
           </div>
         </div>
@@ -78,8 +95,8 @@
             <h1 class="mat-h2 char_name">
               {{ chars.name }}
             </h1>
-            <ng-container *ngFor="let vas of chars.voice_actors | slice:0:1">
-              <h1 class="mat-h2 va_name">{{vas.name }}</h1>
+            <ng-container *ngFor="let vas of chars.voice_actors | slice: 0:1">
+              <h1 class="mat-h2 va_name">{{ vas.name }}</h1>
               <img class="va_img" src="{{ vas.image_url }}" alt="" />
             </ng-container>
           </div>

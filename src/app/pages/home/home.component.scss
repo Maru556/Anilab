@@ -8,13 +8,14 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   h1 {
     z-index: 99;
+    font-size: 5em;
+    margin-bottom: 1em;
   }
   form {
     z-index: 99;
-    width: 30vw;
+    width: 40vw;
     mat-form-field {
       width: 100%;
     }
@@ -44,5 +45,14 @@
         rgba(0, 0, 0, 0)
       );
     }
+  }
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 3em;
+  }
+  form {
+    margin-top: 2em;
   }
 }

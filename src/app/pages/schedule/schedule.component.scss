@@ -1,4 +1,4 @@
-@import '../../variables.scss';
+@import "../../variables.scss";
 h1 {
   margin: 1em;
   text-align: center;
@@ -26,5 +26,25 @@ h1 {
     text-align: center;
     margin: 0;
     padding-top: 0.5em;
+  }
+}
+@media (max-width: 510px) {
+  .container {
+    grid-template-columns: 80% !important;
+  }
+}
+@media (max-width: 1100px) {
+  .container {
+    grid-template-columns: repeat(3, 30%);
+  }
+}
+@media (min-width: 1100px) {
+  .container {
+    grid-template-columns: repeat(5, 15%);
+  }
+}
+@media (min-width: 1600px) {
+  .container {
+    grid-template-columns: repeat(8, 10%);
   }
 }

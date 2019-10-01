@@ -1,13 +1,13 @@
 <div class="main" style="padding-top: 64px">
   <div class="container" alt="">
-    <h1 class="mat-display-4">TOP ANIME</h1>
+    <h1 class="top-anime-title">TOP ANIME</h1>
     <div class="overlay"></div>
   </div>
   <div>
     <mat-tab-group dynamicHeight mat-align-tabs="center">
       <mat-tab label="Top Upcoming">
         <!-- List Navigation -->
-        <div class="list-nav">
+        <!-- <div class="list-nav">
           <button mat-flat-button>
             <mat-icon>navigate_before</mat-icon>
             Prev 50
@@ -16,30 +16,27 @@
             Next 50
             <mat-icon>navigate_next</mat-icon>
           </button>
-        </div>
+        </div> -->
         <!-- Anime Card -->
         <ng-container *ngIf="dataUp">
           <div class="card-container" *ngFor="let up of dataUp.top">
             <mat-card (click)="toDetailPage(up)" class="mat-elevation-z5">
-              <h1 class="mat-display-3">{{ up.rank }}</h1>
+              <h1 class="rank">{{ up.rank }}</h1>
               <div class="img-con">
                 <img src="{{ up.image_url }}" alt="" />
               </div>
               <div class="info">
-                <h1>{{ up.title }}</h1>
-                <h1 class="mat-h3">{{ up.type }}</h1>
+                <h3>{{ up.title }}</h3>
+                <h5>{{ up.type }}</h5>
               </div>
-              <h1>{{ up.score }}<mat-icon>star</mat-icon>
-              </h1>
-
-              <button>+ Add</button>
+              <h1 class="score">{{ up.score }}<mat-icon>star</mat-icon></h1>
             </mat-card>
           </div>
         </ng-container>
       </mat-tab>
       <mat-tab label="Top Airing">
         <!-- List Navigation -->
-        <div class="list-nav">
+        <!-- <div class="list-nav">
           <button mat-flat-button>
             <mat-icon>navigate_before</mat-icon>
             Prev 50
@@ -48,62 +45,56 @@
             Next 50
             <mat-icon>navigate_next</mat-icon>
           </button>
-        </div>
+        </div> -->
         <!-- Anime Card -->
         <ng-container *ngIf="dataAir">
           <div class="card-container" *ngFor="let air of dataAir.top">
             <mat-card (click)="toDetailPage(air)" class="mat-elevation-z5">
-              <h1 class="mat-display-3">{{ air.rank }}</h1>
+              <h1 class="rank">{{ air.rank }}</h1>
               <div class="img-con">
                 <img src="{{ air.image_url }}" alt="" />
               </div>
               <div class="info">
-                <h1>{{ air.title }}</h1>
-                <h1 class="mat-h3">{{ air.type }}</h1>
+                <h3>{{ air.title }}</h3>
+                <h5>{{ air.type }}</h5>
               </div>
-              <h1>{{ air.score }}<mat-icon>star</mat-icon>
-              </h1>
-
-              <button>+ Add</button>
+              <h1 class="score">{{ air.score }}<mat-icon>star</mat-icon></h1>
             </mat-card>
           </div>
         </ng-container>
       </mat-tab>
       <mat-tab label="Top TV">
         <!-- List Navigation -->
-        <div class="list-nav">
+        <!-- <div class="list-nav">
           <button mat-flat-button>
             <mat-icon>navigate_before</mat-icon>
-            Prev 50
+            Prev 50-
           </button>
           <button mat-flat-button>
             Next 50
             <mat-icon>navigate_next</mat-icon>
           </button>
-        </div>
+        </div> -->
         <!-- Anime Card -->
         <ng-container *ngIf="dataTv">
           <div class="card-container" *ngFor="let tv of dataTv.top">
             <mat-card (click)="toDetailPage(tv)" class="mat-elevation-z5">
-              <h1 class="mat-display-3">{{ tv.rank }}</h1>
+              <h1 class="rank">{{ tv.rank }}</h1>
               <div class="img-con">
                 <img src="{{ tv.image_url }}" alt="" />
               </div>
               <div class="info">
-                <h1>{{ tv.title }}</h1>
-                <h1 class="mat-h3">{{ tv.type }}</h1>
+                <h3>{{ tv.title }}</h3>
+                <h5>{{ tv.type }}</h5>
               </div>
-              <h1>{{ tv.score }}<mat-icon>star</mat-icon>
-              </h1>
-
-              <button>+ Add</button>
+              <h1 class="score">{{ tv.score }}<mat-icon>star</mat-icon></h1>
             </mat-card>
           </div>
         </ng-container>
       </mat-tab>
       <mat-tab label="Top Movie">
         <!-- List Navigation -->
-        <div class="list-nav">
+        <!-- <div class="list-nav">
           <button mat-flat-button>
             <mat-icon>navigate_before</mat-icon>
             Prev 50
@@ -112,23 +103,20 @@
             Next 50
             <mat-icon>navigate_next</mat-icon>
           </button>
-        </div>
+        </div>  -->
         <!-- Anime Card -->
         <ng-container *ngIf="dataMov">
           <div class="card-container" *ngFor="let mov of dataMov.top">
-            <mat-card (click)="toDetailPage(mov)" class="mat-elevation-z8">
-              <h1 class="mat-display-3">{{ mov.rank }}</h1>
+            <mat-card (click)="toDetailPage(mov)" class="mat-elevation-z5">
+              <h1 class="rank">{{ mov.rank }}</h1>
               <div class="img-con">
                 <img src="{{ mov.image_url }}" alt="" />
               </div>
               <div class="info">
-                <h1>{{ mov.title }}</h1>
-                <h1 class="mat-h3">{{ mov.type }}</h1>
+                <h3 class="title">{{ mov.title }}</h3>
+                <h5 class="type">{{ mov.type }}</h5>
               </div>
-              <h1>{{ mov.score }}<mat-icon>star</mat-icon>
-              </h1>
-
-              <button>+ Add</button>
+              <h1 class="score">{{ mov.score }}<mat-icon>star</mat-icon></h1>
             </mat-card>
           </div>
         </ng-container>
