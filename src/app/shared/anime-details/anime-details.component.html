@@ -32,8 +32,8 @@
   <!-- Anime Detail Content -->
   <div>
     <mat-tab-group mat-align-tabs="center">
+      <!-- Info  -->
       <mat-tab label="Info">
-        <!-- Info  -->
         <div class="info">
           <div class="info_row">
             <h1 class="mat-h1">Info</h1>
@@ -69,8 +69,8 @@
         </div>
       </mat-tab>
 
+      <!-- Trailer -->
       <mat-tab label="Trailer">
-        <!-- Trailer -->
         <ng-container *ngIf="!data.trailer_url">
           <h1 class="trailer-msg">Sorry we've got nothing</h1>
         </ng-container>
@@ -87,8 +87,8 @@
         </div>
       </mat-tab>
 
+      <!-- Staff Characters -->
       <mat-tab label="Staff & Characters">
-        <!-- Staff Characters -->
         <div class="class-container" *ngIf="info">
           <div class="characters" *ngFor="let chars of info.characters">
             <img class="char_img" src="{{ chars.image_url }}" alt="" />

@@ -1,3 +1,4 @@
+<!-- Update profile dialog -->
 <h1 style="text-align: center;" mat-dialog-title>
     Update your profile info
 </h1>
@@ -8,10 +9,8 @@
     <mat-form-field>
         <input matInput placeholder="Profile Picture URL" #profilePictureUpdate value="{{user.photoURL}}">
     </mat-form-field>
-
 </div>
 <div class="btn" mat-dialog-actions>
     <button mat-stroked-button (click)="deleteUser()">Delete account</button>
     <button mat-flat-button (click)="updateUser(userNameUpdate.value, profilePictureUpdate.value)">Send</button>
-
 </div>

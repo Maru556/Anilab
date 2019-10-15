@@ -1,5 +1,7 @@
 <div class="container">
   <mat-tab-group mat-align-tabs="center" class="mat-elevation-z5">
+
+    <!-- Login Form -->
     <mat-tab label="Login">
       <div class="login">
         <h1 class="mat-h2">Welcome Back!</h1>
@@ -15,6 +17,7 @@
         </mat-form-field>
 
         <mat-form-field>
+          <!-- Toggle pw visibility -->
           <mat-pass-toggle-visibility #toggle1 matSuffix></mat-pass-toggle-visibility>
           <input autocomplete="off" matInput type="password" [type]="toggle1.type" class="formControl"
             placeholder="Password" #userPassword required>
@@ -25,6 +28,7 @@
       </div>
     </mat-tab>
 
+    <!-- Registration Form -->
     <mat-tab label="Register">
       <div class="register">
         <h1 class="mat-h2">Welcome To Anilab!</h1>
@@ -41,6 +45,7 @@
         </mat-form-field>
 
         <mat-form-field>
+          <!-- Toggle pw visibility -->
           <mat-pass-toggle-visibility #toggle2 matSuffix></mat-pass-toggle-visibility>
           <input autocomplete="off" matInput type="password" [type]="toggle2.type" class="formControl"
             placeholder="Password" #userRegPassword required>

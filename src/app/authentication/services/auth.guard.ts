@@ -1,3 +1,4 @@
+//This auth guard prevents not logged in users from accessing the /profile slug and redirects them to the login page
 import { Injectable } from '@angular/core';
 import {
   CanActivate,

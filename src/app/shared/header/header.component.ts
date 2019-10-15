@@ -14,14 +14,16 @@ export class HeaderComponent implements OnInit {
     public afAuth: AngularFireAuth,
     public router: Router
   ) {
+    //prevent search issues 
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
   }
   value = '';
 
+  //search in header works the same as on the homepage
   getSearchPara(value: string) {
     this.value = value;
     this.router.navigate(['/search', value]);
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
 }

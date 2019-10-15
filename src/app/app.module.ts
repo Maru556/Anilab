@@ -30,13 +30,13 @@ import {
   UpdateProfileComponent // Dialog Pop-up
 } from './pages/profile/profile.component';
 import { HeaderComponent } from './shared/header/header.component';
-import { FooterComponent } from './shared/footer/footer.component';
 import { AnimeDetailsComponent } from './shared/anime-details/anime-details.component';
 import { SafeResourceUrlPipe } from './safe-resource-url.pipe';
 import { EmailVerificationComponent } from './authentication/email-verification/email-verification.component';
 import { SearchComponent } from './pages/search/search.component';
 import { environment } from 'src/environments/environment';
 import { BookmarkService } from './shared/bookmark.service';
+import { FooterComponent } from './shared/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -48,13 +48,13 @@ import { BookmarkService } from './shared/bookmark.service';
     LoginComponent,
     ProfileComponent,
     HeaderComponent,
-    FooterComponent,
     AnimeDetailsComponent,
     SafeResourceUrlPipe,
     EmailVerificationComponent,
     ForgotPasswordComponent,
     SearchComponent,
-    UpdateProfileComponent
+    UpdateProfileComponent,
+    FooterComponent
   ],
   imports: [
     AppRoutingModule,

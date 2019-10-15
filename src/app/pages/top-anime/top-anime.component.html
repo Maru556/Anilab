@@ -1,23 +1,13 @@
 <div class="main" style="padding-top: 64px">
   <div class="container" alt="">
-    <h1 class="top-anime-title">TOP ANIME</h1>
+    <h1 class="top-anime-title">TOP 50 ANIME</h1>
     <div class="overlay"></div>
   </div>
   <div>
     <mat-tab-group dynamicHeight mat-align-tabs="center">
+
+      <!-- Top Upcoming -->
       <mat-tab label="Top Upcoming">
-        <!-- List Navigation -->
-        <!-- <div class="list-nav">
-          <button mat-flat-button>
-            <mat-icon>navigate_before</mat-icon>
-            Prev 50
-          </button>
-          <button mat-flat-button>
-            Next 50
-            <mat-icon>navigate_next</mat-icon>
-          </button>
-        </div> -->
-        <!-- Anime Card -->
         <ng-container *ngIf="dataUp">
           <div class="card-container" *ngFor="let up of dataUp.top">
             <mat-card (click)="toDetailPage(up)" class="mat-elevation-z5">
@@ -34,19 +24,9 @@
           </div>
         </ng-container>
       </mat-tab>
+
+      <!-- Top Airing -->
       <mat-tab label="Top Airing">
-        <!-- List Navigation -->
-        <!-- <div class="list-nav">
-          <button mat-flat-button>
-            <mat-icon>navigate_before</mat-icon>
-            Prev 50
-          </button>
-          <button mat-flat-button>
-            Next 50
-            <mat-icon>navigate_next</mat-icon>
-          </button>
-        </div> -->
-        <!-- Anime Card -->
         <ng-container *ngIf="dataAir">
           <div class="card-container" *ngFor="let air of dataAir.top">
             <mat-card (click)="toDetailPage(air)" class="mat-elevation-z5">
@@ -63,19 +43,9 @@
           </div>
         </ng-container>
       </mat-tab>
+
+      <!-- Top TV -->
       <mat-tab label="Top TV">
-        <!-- List Navigation -->
-        <!-- <div class="list-nav">
-          <button mat-flat-button>
-            <mat-icon>navigate_before</mat-icon>
-            Prev 50-
-          </button>
-          <button mat-flat-button>
-            Next 50
-            <mat-icon>navigate_next</mat-icon>
-          </button>
-        </div> -->
-        <!-- Anime Card -->
         <ng-container *ngIf="dataTv">
           <div class="card-container" *ngFor="let tv of dataTv.top">
             <mat-card (click)="toDetailPage(tv)" class="mat-elevation-z5">
@@ -92,19 +62,9 @@
           </div>
         </ng-container>
       </mat-tab>
+
+      <!-- Top Movie -->
       <mat-tab label="Top Movie">
-        <!-- List Navigation -->
-        <!-- <div class="list-nav">
-          <button mat-flat-button>
-            <mat-icon>navigate_before</mat-icon>
-            Prev 50
-          </button>
-          <button mat-flat-button>
-            Next 50
-            <mat-icon>navigate_next</mat-icon>
-          </button>
-        </div>  -->
-        <!-- Anime Card -->
         <ng-container *ngIf="dataMov">
           <div class="card-container" *ngFor="let mov of dataMov.top">
             <mat-card (click)="toDetailPage(mov)" class="mat-elevation-z5">

@@ -19,6 +19,7 @@ export class SearchComponent implements OnInit {
   value = '';
   searchRes: Results[];
 
+  //user input in search field gets parsed to url by getParameter, and will now be used by getSearchResult to request an api call
   getSearchResult(value: string) {
     this.value = value;
     return this.http
@@ -32,9 +33,12 @@ export class SearchComponent implements OnInit {
         () => console.log('done loading search request')
       );
   }
+  //routing to detail page of corrresponding anime when clicked 
   toDetailPage(data) {
     this.router.navigate(['/details', data.mal_id]);
   }
+
+  //getting the search value for getSearchResult from URL
   ngOnInit() {
     let search = this.route.snapshot.paramMap.get('search');
     this.value = search;

@@ -17,61 +17,69 @@ import { HttpClient } from '@angular/common/http';
 export class TopAnimeComponent implements OnInit {
   apiUrl: string = 'https://api.jikan.moe/v3';
 
-
+  //Interfaces
   dataUp: TopUpcoming[];
   dataAir: TopAiring[];
   dataTv: TopTv[];
   dataMov: TopMovies[];
+
   constructor(private router: Router, private http: HttpClient) { }
 
+  //api call for upcoming
   getTopUpcoming() {
     return this.http
       .get<TopUpcoming[]>(`${this.apiUrl}/top/anime/1/upcoming`)
       .subscribe(
         dataUp => {
           this.dataUp = dataUp;
-          console.log(dataUp);
+          //console.log(dataUp);
         },
         err => console.error(err),
         () => console.log('done loading details')
       );
   }
+
+  //api call for airing
   getTopAiring() {
     return this.http
       .get<TopAiring[]>(`${this.apiUrl}/top/anime/1/airing`)
       .subscribe(
         dataAir => {
           this.dataAir = dataAir;
-          console.log(dataAir);
+          //console.log(dataAir);
         },
         err => console.error(err),
         () => console.log('done loading details')
       );
   }
 
+  //api call for tv
   getTopTv() {
     return this.http.get<TopTv[]>(`${this.apiUrl}/top/anime/1/tv`).subscribe(
       dataTv => {
         this.dataTv = dataTv;
-        console.log(dataTv);
+        //console.log(dataTv);
       },
       err => console.error(err),
       () => console.log('done loading details')
     );
   }
 
+  //api call for movie
   getTopMovie() {
     return this.http
       .get<TopMovies[]>(`${this.apiUrl}/top/anime/1/movie`)
       .subscribe(
         dataMov => {
           this.dataMov = dataMov;
-          console.log(dataMov);
+          //console.log(dataMov);
         },
         err => console.error(err),
         () => console.log('done loading details')
       );
   }
+
+  //routing to detail page base on mal_id
   toDetailPage(data) {
     this.router.navigate(['/details', data.mal_id]);
   }

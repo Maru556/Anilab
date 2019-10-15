@@ -1,6 +1,6 @@
 @import "../../variables.scss";
 h1 {
-  margin: 1em;
+  margin: 3em;
   text-align: center;
 }
 .container {
@@ -15,9 +15,12 @@ h1 {
   grid-gap: 2em;
 }
 .tile-container {
+  background-color: $bg-color;
+  border-radius: 5px;
   height: 350px;
   cursor: pointer;
   img {
+    border-radius: 4px 4px 0 0;
     height: 270px;
     width: 100%;
     object-fit: cover;

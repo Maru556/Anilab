@@ -13,22 +13,20 @@ import { AuthService } from 'src/app/authentication/services/auth.service';
   styleUrls: ['./anime-details.component.scss']
 })
 export class AnimeDetailsComponent implements OnInit {
-  //api url to connect to MAL API
-  apiUrl: string = 'https://api.jikan.moe/v3';
-  public animeId;
 
-  //Functions
+  apiUrl: string = 'https://api.jikan.moe/v3';
+
+  public animeId;
 
   //api call to get anime details based on the id that was passed
   getApiDetails(): Observable<AnimeDetail[]> {
     return this.http.get<AnimeDetail[]>(`${this.apiUrl}/anime/${this.animeId}`);
   }
-
   getAnimeDetails() {
     this.getApiDetails().subscribe(
       data => {
         this.data = data;
-        console.log(data);
+        //console.log(data);
       },
       err => console.error(err),
       () => console.log('done loading details')
@@ -78,13 +76,13 @@ export class AnimeDetailsComponent implements OnInit {
     private sanitizer: DomSanitizer,
     public bmService: BookmarkService,
     public authService: AuthService
-  ) {}
+  ) { }
 
   ngOnInit() {
     //getting the id from routing
     let id = parseInt(this.route.snapshot.paramMap.get('id'));
     this.animeId = id;
-    //initiatig funvtions
+
     this.getAnimeDetails();
     this.getAnimePictures();
     this.getAnimeCharacters();

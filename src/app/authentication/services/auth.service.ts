@@ -39,6 +39,7 @@ export class AuthService {
     });
   }
 
+  //update the user data
   update() {
     this.afAuth.auth.updateCurrentUser(this.userData);
   }
@@ -70,9 +71,11 @@ export class AuthService {
         this.SetUserData(result.user);
       })
       .catch(error => {
+        //general error management
         this.notyf.error(error.message);
       })
       .catch(cred_error => {
+        //credential error management
         this.notyf.error(cred_error.credentials);
       });
   }
@@ -96,15 +99,14 @@ export class AuthService {
       });
   }
 
-  // Returns true when user is looged in and email is verified
+  // Checking user status 
   get isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user'));
     return user !== null && user.emailVerified !== false ? true : false;
   }
 
   /* Setting up user data when sign in with username/password, 
-  sign up with username/password and sign in with social auth  
-  provider in Firestore database using AngularFirestore + AngularFirestoreDocument service */
+  sign up with username/password in Firestore database using AngularFirestore + AngularFirestoreDocument service */
   SetUserData(user) {
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(
       `users/${user.uid}`

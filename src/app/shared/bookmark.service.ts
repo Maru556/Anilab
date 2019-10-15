@@ -20,14 +20,17 @@ export class BookmarkService {
     public notyf: NotyfService,
     public authService: AuthService
   ) {
-    console.log(this.authService.isLoggedIn);
+    //console.log(this.authService.isLoggedIn);
+    //console.log(this.currUser);
   }
-  currUser; //this.afAuth.auth.currentUser.uid;
+
+  //get currrent user from localstorage
+  currUser = JSON.parse(localStorage.getItem('user'));
 
   setLocal() {
     if (this.authService.isLoggedIn === true) {
       this.afs
-        .collection(`users/${this.currUser}/bookmarks`)
+        .collection(`users/${this.currUser.uid}/bookmarks`)
         .valueChanges()
         .subscribe(bookmarks => {
           this.bmData = bookmarks;
@@ -37,8 +40,7 @@ export class BookmarkService {
           }
         });
     } else {
-      console.log("nope");
-
+      //console.log("nope");
     }
   }
   AddBookmarkData(bm) {
@@ -70,10 +72,5 @@ export class BookmarkService {
           this.notyf.error(err.message);
         });
     }
-  }
-  ngOnInit() {
-
-    this.setLocal();
-
   }
 }

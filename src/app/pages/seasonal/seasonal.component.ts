@@ -14,6 +14,7 @@ export class SeasonalComponent implements OnInit {
   data: AnimeDetail[];
   constructor(private router: Router, private http: HttpClient) { }
 
+  //api call for seasonal anime based on select inputs 
   getSeasonal() {
     return this.http
       .get<AnimeDetail[]>(
@@ -28,10 +29,12 @@ export class SeasonalComponent implements OnInit {
         () => console.log('done loading details')
       );
   }
+  //routing to corresponding anime detail page when clicked based on mal_id
   toDetailPage(data) {
     this.router.navigate(['/details', data.mal_id]);
   }
-  //Had to generate an array of years
+
+  //had to generate an array of years to limit the selection 
   public years;
   getYears() {
     this.years = {
@@ -48,25 +51,28 @@ export class SeasonalComponent implements OnInit {
     console.log(this.years);
   }
   selectedYear = new Date().getFullYear() || {};
-  //Select options
-
+ 
+//select input
   getUserInput() {
     if (this.selectedSeason != '' && this.selectedYear != {}) {
       this.getSeasonal();
     }
   }
 
+//array for seasons 
   seasons = [
     { value: 'winter', season: 'Winter' },
     { value: 'spring', season: 'Spring' },
     { value: 'summer', season: 'Summer' },
     { value: 'fall', season: 'Fall' }
   ];
+
+  //by default fall
   selectedSeason = 'fall' || '';
+
   ngOnInit() {
     this.getYears();
     this.getUserInput();
     console.log(this.selectedSeason);
   }
-  ngDoCheck() { }
 }

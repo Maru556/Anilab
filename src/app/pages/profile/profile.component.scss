@@ -11,6 +11,7 @@
     width: 100%;
     height: 300px;
     background-image: url("../../../assets/images/profile_bg.jpg");
+    background-size: cover;
   }
 }
 .content {
@@ -59,10 +60,39 @@
 .lists {
   margin-top: 1em;
   display: flex;
-  justify-content: center;
-  .card-con {
-    height: 200px;
-    width: 100px;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  h1 {
+    margin: 1em;
+  }
+  mat-card {
+    margin-bottom: 1em;
+    display: flex;
+    height: 130px;
+    width: 800px;
+    background-color: $bg-color;
+    padding: 0;
+    div {
+      display: flex;
+      height: 100%;
+      align-items: center;
+      h2 {
+        width: 675px;
+        margin-left: 10px;
+        margin-right: 10px;
+      }
+      img {
+        height: 100%;
+        width: 150px;
+        border-radius: 4px 0 0 4px;
+        object-fit: cover;
+      }
+    }
+    .btn {
+      height: 100%;
+      width: 75px;
+    }
   }
 }
 @media (max-width: 768px) {

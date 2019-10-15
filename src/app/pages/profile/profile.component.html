@@ -18,7 +18,7 @@
           </div>
           <div class=" username">
             <p>username:</p>
-            <h1>{{ user.displayName || "unknown" }}</h1>
+            <h1>{{ user.displayName || "not set" }}</h1>
           </div>
         </div>
         <button mat-icon-button (click)="openDialog()">
@@ -28,10 +28,21 @@
     </div>
     <div class=" lists" *ngIf="bmService.bmData as bookmarks">
       <h1>your anime list</h1>
-      <div *ngFor="let bm of bookmarks" class="card-con">
-        <mat-card (click)="toDetailPage(bm)" class="mat-elevation-z5">
-          <h1>{{ bm.title }}</h1>
-          <img src="{{ bm.image_url }}" alt="" />
+      <div *ngFor="let bm of bookmarks">
+        <mat-card class="mat-elevation-z5">
+          <div (click)="toDetailPage(bm)">
+            <img src="{{ bm.image_url }}" alt="" />
+            <h2>{{ bm.title }}</h2>
+          </div>
+          <button
+            class="btn"
+            #malId
+            (click)="deleteBm(bm.mal_id)"
+            mat-icon-button
+            aria-label="delete button"
+          >
+            <mat-icon>delete</mat-icon>
+          </button>
         </mat-card>
       </div>
     </div>

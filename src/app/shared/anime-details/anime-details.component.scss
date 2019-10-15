@@ -132,6 +132,7 @@
   width: 100%;
   height: fit-content;
   .characters {
+    overflow-x: hidden;
     margin-top: 2em;
     width: 100%;
     display: grid;

@@ -32,6 +32,7 @@ export class LoginComponent {
   }
 }
 
+//Implementing the forgot pw dialog in the login component 
 @Component({
   selector: "app-forgot-password",
   templateUrl:

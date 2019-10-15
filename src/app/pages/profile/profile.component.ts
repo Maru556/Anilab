@@ -28,7 +28,7 @@ export interface DialogData { }
 export class ProfileComponent {
   user: User;
   bookmarks: Bookmarks;
-
+  userInfo = JSON.parse(localStorage.getItem('user'))
   constructor(
     public authService: AuthService,
     public router: Router,
@@ -36,10 +36,19 @@ export class ProfileComponent {
     public dialog: MatDialog,
     public bmService: BookmarkService,
     public afs: AngularFirestore
-  ) { }
+  ) {
 
-  ngOnInit() { }
+  }
 
+  ngOnInit() {
+    this.bmService.setLocal();
+  }
+
+  deleteBm(malId) {
+    this.afs.collection(`users/${this.userInfo.uid}/bookmarks`).doc(`${malId}`).delete();
+  }
+
+  //Dialog for updating name and img
   openDialog(): void {
     const dialogRef = this.dialog.open(UpdateProfileComponent, {
       width: '350px',
@@ -66,6 +75,8 @@ export class UpdateProfileComponent {
 
   user = this.afAuth.auth.currentUser;
 
+  //checks if user is logged in and takes the values provided by the input to update the profile 
+  //the values stay set by default 
   updateUser(userNameUpdate: string, profilePictureUpdate: string) {
     if (this.authService.isLoggedIn === true) {
       if (userNameUpdate !== '' && profilePictureUpdate !== '') {
@@ -95,6 +106,7 @@ export class UpdateProfileComponent {
     }
   }
 
+  //will delete the user/userdata from firebase and redirect to home
   deleteUser() {
     this.afAuth.auth.currentUser
       .delete()
