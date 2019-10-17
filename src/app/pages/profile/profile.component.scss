@@ -127,4 +127,23 @@
       order: 2;
     }
   }
+  .lists {
+    text-align: center;
+    mat-card {
+      width: 100vw;
+      height: 150px;
+      div {
+        width: 100vw;
+
+        h2 {
+          font-size: 1.3em;
+          width: fit-content;
+        }
+        img {
+          width: 80px;
+          height: 150px;
+        }
+      }
+    }
+  }
 }

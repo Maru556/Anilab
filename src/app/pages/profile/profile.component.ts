@@ -19,6 +19,7 @@ import {
 } from '@angular/fire/firestore';
 import { BookmarkService } from 'src/app/shared/bookmark.service';
 
+
 export interface DialogData { }
 @Component({
   selector: 'app-profile',
@@ -108,20 +109,19 @@ export class UpdateProfileComponent {
 
   //will delete the user/userdata from firebase and redirect to home
   deleteUser() {
-    this.afAuth.auth.currentUser
-      .delete()
-      .then(succ => {
+    if (this.authService.isLoggedIn === true && this.user.uid === this.afAuth.auth.currentUser.uid) {
+      this.afAuth.auth.currentUser.delete();
+      this.afs.doc(`users/${this.user.uid}`).delete();
+      this.afs.collection(`users/${this.user.uid}/bookmarks`, ref => ref.where('email', '==', this.afAuth.auth.currentUser.email)).ref.get().then(qry => {
+        const batch = this.afs.firestore.batch();
+        qry.forEach(doc => batch.delete(doc.ref));
+        return batch.commit();
+      }).then(succ => {
         this.dialogRef.close();
         this.notyf.success('Your Profile has been deleted');
         this.router.navigate(['/']);
-        const userRef: AngularFirestoreDocument<any> = this.afs.doc(
-          `users/${this.user.uid}`
-        );
-        return userRef.delete();
-      })
-      .catch(err => {
-        this.notyf.error(err.message);
-      });
+      }).catch(err => this.notyf.error(err.message))
+    }
   }
 
   onNoClick(): void {
