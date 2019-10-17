@@ -1,4 +1,4 @@
-@import "../../variables.scss";
+@import '../../variables.scss';
 
 div {
   height: 50px;
@@ -6,6 +6,7 @@ div {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
   h4 {
     margin-left: 4em;
   }

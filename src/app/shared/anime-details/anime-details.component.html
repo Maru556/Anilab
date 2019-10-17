@@ -1,10 +1,7 @@
 <div *ngIf="data" class="main" style="padding-top: 64px">
   <!--Anime Detail Background-->
   <ng-container *ngIf="!img">
-    <mat-progress-spinner
-      mode="indeterminate"
-      color="accent"
-    ></mat-progress-spinner>
+    <mat-progress-spinner mode="indeterminate" color="accent"></mat-progress-spinner>
   </ng-container>
   <div *ngIf="img" class="container" alt="">
     <div class="overlay"><img src="{{ img.pictures[0].large }}" alt="" /></div>
@@ -18,12 +15,9 @@
       <h1 class="anime-rating">
         {{ data.score || "X" }}<mat-icon>star</mat-icon>
       </h1>
-      <button
-        *ngIf="authService.isLoggedIn"
-        (click)="
+      <button *ngIf="authService.isLoggedIn" (click)="
           bmService.GetBookmarkData(data.mal_id, data.title, data.image_url)
-        "
-      >
+        ">
         + Add
       </button>
     </div>
@@ -76,12 +70,7 @@
         </ng-container>
         <div *ngIf="data.trailer_url" class="vid">
           <div style="--aspect-ratio: 16/9;">
-            <iframe
-              [src]="data.trailer_url | safeResourceUrl"
-              width="1600"
-              height="900"
-              frameborder="0"
-            >
+            <iframe [src]="data.trailer_url | safeResourceUrl" width="1600" height="900" frameborder="0">
             </iframe>
           </div>
         </div>
@@ -105,4 +94,3 @@
     </mat-tab-group>
   </div>
 </div>
-<app-footer></app-footer>
