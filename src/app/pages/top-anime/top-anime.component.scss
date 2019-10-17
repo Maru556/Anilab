@@ -1,4 +1,4 @@
-@import "../../variables.scss";
+@import '../../variables.scss';
 
 .container {
   height: 35vh;
@@ -20,7 +20,7 @@
   position: absolute;
   background-color: rgb(0, 0, 0);
   opacity: 0.2;
-  background: url("../../../assets/images/fma.jpg") no-repeat center;
+  background: url('../../../assets/images/fma.jpg') no-repeat center;
   background-size: cover;
   z-index: 0;
 }
@@ -70,7 +70,7 @@ mat-card {
     }
   }
   button {
-    font-size: $font-l;
+    font-size: 2em;
     border-style: none;
     background: none;
     cursor: pointer;
