@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ScheduleComponent implements OnInit {
   apiUrl: string = 'https://api.jikan.moe/v3';
-  constructor(private router: Router, private http: HttpClient) { }
+  constructor(private router: Router, private http: HttpClient) {}
 
   weekly;
 
@@ -18,7 +18,7 @@ export class ScheduleComponent implements OnInit {
     return this.http.get(`${this.apiUrl}/schedule`).subscribe(
       weekly => {
         this.weekly = weekly;
-        console.log(weekly);
+        //console.log(weekly);
       },
       err => console.error(err),
       () => console.log('done loading details')

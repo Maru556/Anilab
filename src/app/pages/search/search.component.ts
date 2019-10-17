@@ -27,13 +27,13 @@ export class SearchComponent implements OnInit {
       .subscribe(
         searchRes => {
           this.searchRes = searchRes;
-          console.log(searchRes);
+          //console.log(searchRes);
         },
         err => console.error(err),
         () => console.log('done loading search request')
       );
   }
-  //routing to detail page of corrresponding anime when clicked 
+  //routing to detail page of corrresponding anime when clicked
   toDetailPage(data) {
     this.router.navigate(['/details', data.mal_id]);
   }

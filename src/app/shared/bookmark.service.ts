@@ -20,17 +20,21 @@ export class BookmarkService {
     public notyf: NotyfService,
     public authService: AuthService
   ) {
-    //console.log(this.authService.isLoggedIn);
-    //console.log(this.currUser);
+    this.getUid();
+    this.setLocal();
   }
+  currUser;
 
-  //get currrent user from localstorage
-  currUser = JSON.parse(localStorage.getItem('user'));
+  getUid() {
+    localStorage.getItem('user.uid');
+    console.log(this.currUser);
+    return this.currUser;
+  }
 
   setLocal() {
     if (this.authService.isLoggedIn === true) {
       this.afs
-        .collection(`users/${this.currUser.uid}/bookmarks`)
+        .collection(`users/${this.currUser}/bookmarks`)
         .valueChanges()
         .subscribe(bookmarks => {
           this.bmData = bookmarks;
@@ -39,8 +43,6 @@ export class BookmarkService {
             JSON.parse(localStorage.getItem('bookmarks'));
           }
         });
-    } else {
-      //console.log("nope");
     }
   }
   AddBookmarkData(bm) {

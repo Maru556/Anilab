@@ -13,7 +13,6 @@ import { AuthService } from 'src/app/authentication/services/auth.service';
   styleUrls: ['./anime-details.component.scss']
 })
 export class AnimeDetailsComponent implements OnInit {
-
   apiUrl: string = 'https://api.jikan.moe/v3';
 
   public animeId;
@@ -44,7 +43,7 @@ export class AnimeDetailsComponent implements OnInit {
     this.getPictures().subscribe(
       img => {
         this.img = img;
-        console.log(img);
+        //console.log(img);
       },
       err => console.error(err),
       () => console.log('done loading pictures')
@@ -62,7 +61,7 @@ export class AnimeDetailsComponent implements OnInit {
     this.getCharacters().subscribe(
       info => {
         this.info = info;
-        console.log(info);
+        //console.log(info);
       },
       err => console.log(err),
       () => console.log('done loading characters')
@@ -76,7 +75,7 @@ export class AnimeDetailsComponent implements OnInit {
     private sanitizer: DomSanitizer,
     public bmService: BookmarkService,
     public authService: AuthService
-  ) { }
+  ) {}
 
   ngOnInit() {
     //getting the id from routing

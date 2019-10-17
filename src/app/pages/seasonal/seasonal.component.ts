@@ -12,9 +12,9 @@ export class SeasonalComponent implements OnInit {
   apiUrl: string = 'https://api.jikan.moe/v3';
 
   data: AnimeDetail[];
-  constructor(private router: Router, private http: HttpClient) { }
+  constructor(private router: Router, private http: HttpClient) {}
 
-  //api call for seasonal anime based on select inputs 
+  //api call for seasonal anime based on select inputs
   getSeasonal() {
     return this.http
       .get<AnimeDetail[]>(
@@ -23,7 +23,7 @@ export class SeasonalComponent implements OnInit {
       .subscribe(
         data => {
           this.data = data;
-          console.log(data);
+          //console.log(data);
         },
         err => console.error(err),
         () => console.log('done loading details')
@@ -34,7 +34,7 @@ export class SeasonalComponent implements OnInit {
     this.router.navigate(['/details', data.mal_id]);
   }
 
-  //had to generate an array of years to limit the selection 
+  //had to generate an array of years to limit the selection
   public years;
   getYears() {
     this.years = {
@@ -48,18 +48,18 @@ export class SeasonalComponent implements OnInit {
     for (var i = min; i <= max; i++) {
       this.years.availableYears.push({ id: i });
     }
-    console.log(this.years);
+    //console.log(this.years);
   }
   selectedYear = new Date().getFullYear() || {};
- 
-//select input
+
+  //select input
   getUserInput() {
     if (this.selectedSeason != '' && this.selectedYear != {}) {
       this.getSeasonal();
     }
   }
 
-//array for seasons 
+  //array for seasons
   seasons = [
     { value: 'winter', season: 'Winter' },
     { value: 'spring', season: 'Spring' },
@@ -73,6 +73,6 @@ export class SeasonalComponent implements OnInit {
   ngOnInit() {
     this.getYears();
     this.getUserInput();
-    console.log(this.selectedSeason);
+    //console.log(this.selectedSeason);
   }
 }

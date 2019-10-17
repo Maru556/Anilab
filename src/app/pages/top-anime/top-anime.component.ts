@@ -1,13 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  TopUpcoming,
-  TopAiring,
-  TopTv,
-  TopMovies,
-} from 'src/app/api.model';
+import { TopUpcoming, TopAiring, TopTv, TopMovies } from 'src/app/api.model';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-
 
 @Component({
   selector: 'app-top-anime',
@@ -23,7 +17,7 @@ export class TopAnimeComponent implements OnInit {
   dataTv: TopTv[];
   dataMov: TopMovies[];
 
-  constructor(private router: Router, private http: HttpClient) { }
+  constructor(private router: Router, private http: HttpClient) {}
 
   //api call for upcoming
   getTopUpcoming() {
@@ -35,7 +29,7 @@ export class TopAnimeComponent implements OnInit {
           //console.log(dataUp);
         },
         err => console.error(err),
-        () => console.log('done loading details')
+        () => console.log('done loading Upcoming')
       );
   }
 
@@ -49,7 +43,7 @@ export class TopAnimeComponent implements OnInit {
           //console.log(dataAir);
         },
         err => console.error(err),
-        () => console.log('done loading details')
+        () => console.log('done loading Airing')
       );
   }
 
@@ -61,7 +55,7 @@ export class TopAnimeComponent implements OnInit {
         //console.log(dataTv);
       },
       err => console.error(err),
-      () => console.log('done loading details')
+      () => console.log('done loading top TV')
     );
   }
 
@@ -75,7 +69,7 @@ export class TopAnimeComponent implements OnInit {
           //console.log(dataMov);
         },
         err => console.error(err),
-        () => console.log('done loading details')
+        () => console.log('done loading Movies')
       );
   }
 
