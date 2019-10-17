@@ -20,7 +20,7 @@ const appRoutes: Routes = [
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'details/:id', component: AnimeDetailsComponent },
-  { path: '', component: HomeComponent },
+  { path: 'Anilab', component: HomeComponent },
   {
     path: 'verify-email-address',
     component: EmailVerificationComponent,
@@ -33,4 +33,4 @@ const appRoutes: Routes = [
   imports: [RouterModule.forRoot(appRoutes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

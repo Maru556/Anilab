@@ -20,21 +20,17 @@ export class BookmarkService {
     public notyf: NotyfService,
     public authService: AuthService
   ) {
-    this.getUid();
-    this.setLocal();
+    //console.log(this.authService.isLoggedIn);
+    //console.log(this.currUser);
   }
-  currUser;
 
-  getUid() {
-    localStorage.getItem('user.uid');
-    console.log(this.currUser);
-    return this.currUser;
-  }
+  //get currrent user from localstorage
+  currUser = JSON.parse(localStorage.getItem('user'));
 
   setLocal() {
     if (this.authService.isLoggedIn === true) {
       this.afs
-        .collection(`users/${this.currUser}/bookmarks`)
+        .collection(`users/${this.currUser.uid}/bookmarks`)
         .valueChanges()
         .subscribe(bookmarks => {
           this.bmData = bookmarks;
