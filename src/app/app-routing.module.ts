@@ -20,7 +20,7 @@ const appRoutes: Routes = [
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'details/:id', component: AnimeDetailsComponent },
-  { path: 'Anilab', component: HomeComponent },
+  { path: '', component: HomeComponent },
   {
     path: 'verify-email-address',
     component: EmailVerificationComponent,
