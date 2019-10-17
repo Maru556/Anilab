@@ -1,4 +1,4 @@
-@import "../../variables.scss";
+@import '../../variables.scss';
 h1 {
   margin: 3em;
   text-align: center;
@@ -18,6 +18,8 @@ h1 {
   background-color: $bg-color;
   border-radius: 5px;
   height: 350px;
+  overflow: hidden;
+  line-height: 2em;
   cursor: pointer;
   img {
     border-radius: 4px 4px 0 0;
@@ -28,6 +30,8 @@ h1 {
   h1 {
     text-align: center;
     margin: 0;
+    margin-left: 5px;
+    margin-right: 5px;
     padding-top: 0.5em;
   }
 }
