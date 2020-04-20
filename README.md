@@ -15,7 +15,7 @@ When i was thinking about what i wanted to do for this assignment, i was checkin
 
 ### Dev
 
-The development process itself was still not as smooth as i wanted it to be, but that's part of the learning experience. The ui stuff wasn't that much of a problem, and i got it done pretty quick. I wanted to get most of the visual stuff out of the way asap. The authentication feature, took some time, but it helped me understand firebase better. Bookmarking Animes wasn't as easy as i thought it would be, because i had to make multiple things work together smoothly. The routing and the other basic feature were't as much of a challenge as the other two things that i mentioned before. 
+The development process itself was still not as smooth as i wanted it to be, but that's part of the learning experience. The ui stuff wasn't that much of a problem, and i got it done pretty quick. I wanted to get most of the visual stuff out of the way asap. The authentication feature, took some time, but it helped me understand firebase better. Bookmarking Animes wasn't as easy as i thought it would be, because i had to make multiple things work together smoothly. The routing and the other basic features weren't as much of a challenge as the other two things that i mentioned before. 
 
 ### End 
 
